@@ -31,13 +31,12 @@ int main() {
     ll i,j,k,x,y,z,p,q;
     ll n,m,tmp;
     string s[200000];
-    string str1,str2;
+    string str;
     ll sum=0;
     ll strr[200005];
-    cin>>j>>str1>>str2;
-    rep(i,j){
-        cout<<str1[i]<<str2[i];
-    }
-    ln;
+    cin>>n;
+    vector<int> a(n);
+    rep(i,n)   cin >> a[i];
+
     return 0;
 }

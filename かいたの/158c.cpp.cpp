@@ -32,36 +32,18 @@ int main() {
     ll n,m,tmp;
     string s[200000];
     string str;
-    double sum=0;
+    ll sum=0;
     ll strr[200005];
-    cin>>n;
-    if(n%2){
-        cout<<0<<endl;
-    }else if(n==0){
-        cout<<1<<endl;
-    }else{
-        n=n/10;
-        x=1;
-        ll f=0;
-    for(i=1;n!=0;n=n/10,i++){
-
-        if(n/10!=0){
-            f=1;
-            if(sum==0){
-                sum=10;
-            }else{
-                sum+=sum*10;
-            }
-        }else{
-            if(f==1) sum--;
-            m=n%10;
-            sum+=m*i;
-            }
+    cin>>x>>y;
+    rep(i,10001){
+        
+            if((long long)(i*0.08)==x&&(long long)(i*0.1)==y){
+                cout<<i<<endl;
+                return 0;
+            
         }
-        cout<<sum<<endl;
-
     }
+    cout<<-1<<endl;
+
     return 0;
 }
-//けたあがり：1桁下の数*10+nかいめ
-//100:11,1000:112,10000:1123

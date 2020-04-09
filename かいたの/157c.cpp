@@ -34,28 +34,26 @@ int main() {
     string str;
     ll sum=0;
     ll strr[200005];
-    cin>>i>>j;
-    if(i==1){
-        if(j==2){
-            cout<<3<<endl;
-        }else{
-            cout<<2<<endl;
+    cin>>n>>m;
+    vector<int> a(n);
+    vector<int> b(n);
+    rep(i,n) cin>>a[i]>>b[i];
+    rep(i,n){
+        rep(j,n-1){
+            if(a[i]==a[j]){
+                if(b[i]!=b[j]){
+                    cout<<-1<<endl;
+                    return 0;
+                }
+            }
         }
     }
-    if(i==2){
-        if(j==1){
-            cout<<3<<endl;
-        }else{
-            cout<<1<<endl;
-        }
+    rep(i,n){
+        k=0.1;
+        rep(j,i+1) k=k*10; 
+        k=k*b[i];
+        sum+=k;
     }
-    if(i==3){
-        if(j==1){
-            cout<<2<<endl;
-        }else{
-            cout<<1<<endl;
-        }
-    }
-
+    cout<<sum<<endl;
     return 0;
 }

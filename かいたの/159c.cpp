@@ -28,34 +28,16 @@ int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
        
-    ll i,j,k,x,y,z,p,q;
+    ll i,j,k,x,y,z;//p,q;
     ll n,m,tmp;
     string s[200000];
     string str;
     ll sum=0;
     ll strr[200005];
-    cin>>i>>j;
-    if(i==1){
-        if(j==2){
-            cout<<3<<endl;
-        }else{
-            cout<<2<<endl;
-        }
-    }
-    if(i==2){
-        if(j==1){
-            cout<<3<<endl;
-        }else{
-            cout<<1<<endl;
-        }
-    }
-    if(i==3){
-        if(j==1){
-            cout<<2<<endl;
-        }else{
-            cout<<1<<endl;
-        }
-    }
+    cin>>n;
+    double p=(double)n/3;
+    
+    printf("%.12f",p*p*p);
 
     return 0;
 }
