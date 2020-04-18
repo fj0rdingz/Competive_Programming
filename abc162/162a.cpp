@@ -5,7 +5,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<fstream>
-
+ 
 #define F first
 #define S second
 #define R cin>>
@@ -23,20 +23,25 @@
 #define rep(i,n) REP(i,0,n)
 #define tr(it,c) for(iter(c) it=(c).begin();it!=(c).end();it++)
 using namespace std;
-
+ 
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
        
-    ll i,j,k,x,y,z,p,q;
+    ll i,j,k,p=1,q=1;
     ll n,m,tmp;
     string s[200000];
     string str;
     ll sum=0;
     ll strr[200005];
     cin>>n;
-    vector<int> a(n);
-    rep(i,n)   cin >> a[i];
-
-    return 0;
+    ll f=0;
+  	if(n%10==7) f=1;
+  	if(n/100==7) f=1;
+  	n=n%100;
+  	n=n/10;
+  	if(n==7) f=1;
+  	if(f==1) cout<<"Yes"<<endl;
+  else cout<<"No"<<endl;
+  return 0;
 }

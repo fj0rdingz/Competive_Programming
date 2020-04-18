@@ -28,15 +28,20 @@ int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
        
-    ll i,j,k,x,y,z,p,q;
+    ll i,j,k,p=1,q=1;
     ll n,m,tmp;
     string s[200000];
     string str;
     ll sum=0;
     ll strr[200005];
     cin>>n;
-    vector<int> a(n);
-    rep(i,n)   cin >> a[i];
-
-    return 0;
+    for(i=1;i<=n;i++){
+        for(j=1;j<=n;j++){
+            for(k=1;k<=n;k++){
+                sum+=gcd(gcd(i,j),k);
+            }
+        }
+    }
+    cout<<sum<<endl;
+  return 0;
 }

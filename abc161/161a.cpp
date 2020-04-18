@@ -1,9 +1,4 @@
-#include <cstdio>
-#include <queue>
-#include <iostream>
-#include <bits/stdc++.h>
-#include<stdio.h>
-#include<string.h>
+
 #include<fstream>
 
 #define F first
@@ -35,6 +30,7 @@ int main() {
     ll sum=0;
     ll strr[200005];
     cin>>i>>j>>k;
+    
     cout<<k<<" "<<i<<" "<<j;
     return 0;
 }

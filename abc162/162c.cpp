@@ -1,9 +1,6 @@
-#include <cstdio>
 #include <queue>
 #include <iostream>
-#include <bits/stdc++.h>
-#include<stdio.h>
-#include<string.h>
+#include <stdc++.h>
 #include<fstream>
 
 #define F first
@@ -27,7 +24,6 @@ using namespace std;
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
-       
     ll i,j,k,x,y,z,p,q;
     ll n,m,tmp;
     string s[200000];
@@ -37,6 +33,12 @@ int main() {
     cin>>n;
     vector<int> a(n);
     rep(i,n)   cin >> a[i];
-
+    {
+        {
+            {
+                
+            }
+        }
+    }
     return 0;
 }
