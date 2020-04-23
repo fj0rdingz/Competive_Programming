@@ -11,8 +11,7 @@ int main() {
     ll i,j,k,l,m,n,w,x,y,z,p,q,tmp,sum=0;
     string str;
     cin>>n;
-    vector<int> a(n);
-    rep(i,n)   cin >> a[i];
+    cout<<n*2*M_PI;
 
     return 0;
 }

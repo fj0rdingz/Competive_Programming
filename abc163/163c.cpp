@@ -12,7 +12,13 @@ int main() {
     string str;
     cin>>n;
     vector<int> a(n);
-    rep(i,n)   cin >> a[i];
+    vector<int> b(n+1);
+    rep(i,n-1)   cin >> a[i];
+    rep(i,n) b[a[i]]++;
+    rep(i,n+1){
+        if(i==0) continue;
+        cout<<b[i]<<endl;
+    }
 
     return 0;
 }

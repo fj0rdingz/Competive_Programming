@@ -24,18 +24,7 @@
 #define tr(it,c) for(iter(c) it=(c).begin();it!=(c).end();it++)
 using namespace std;
 
-template< typename T >
-size_t longest_increasing_subsequence(const vector< T > &a, bool strict) {
-  vector< T > lis;
-  for(auto &p : a) {
-    typename vector< T >::iterator it;
-    if(strict) it = lower_bound(begin(lis), end(lis), p);
-    else it = upper_bound(begin(lis), end(lis), p);
-    if(end(lis) == it) lis.emplace_back(p);
-    else *it = p;
-  }
-  return lis.size();
-}
+
 
 int main() {
     cin.tie(0);
@@ -49,12 +38,15 @@ int main() {
     ll strr[200005];
     cin>>n;
     vector<int> a(n);
-    for(i=n-1;i>=0;i--){
+    rep(i,n){
         cin>>a[i];
     }
-    cout << longest_increasing_subsequence(a, false) << endl;
-
-
+    ll min=1e8;
+    ll cnt=0;
+    rep(i,n){
+      if(min>a[i]) {cnt++; min=a[i];}
+    }
+  cout<<cnt<<endl;
 
     return 0;
 }

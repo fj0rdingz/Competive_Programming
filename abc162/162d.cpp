@@ -5,7 +5,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<fstream>
-
+ 
 #define F first
 #define S second
 #define R cin>>
@@ -23,7 +23,7 @@
 #define rep(i,n) REP(i,0,n)
 #define tr(it,c) for(iter(c) it=(c).begin();it!=(c).end();it++)
 using namespace std;
-
+ 
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
@@ -35,13 +35,31 @@ int main() {
     ll sum=0;
     ll strr[200005];
     cin>>n;
-    for(i=1;i<=n;i++){
-        for(j=1;j<=n;j++){
-            for(k=1;k<=n;k++){
-                sum+=gcd(gcd(i,j),k);
+    cin>>str;
+    ll r=0,g=0,b=0;
+    for(i=0;i<n;i++){
+        if(str[i]=='R') r++;
+        if(str[i]=='G') g++;
+        if(str[i]=='B') b++;
+    }
+    rep(i,n-2){
+        for(j=i+2;j<n;j++){
+            if((j-i)%2==0){
+                if(str[i]=='R'){
+                    if(str[j]=='B'&&str[(j+i)/2]=='G') sum--;
+                    if(str[j]=='G'&&str[(j+i)/2]=='B') sum--;
+                }else  if(str[i]=='B'){
+                    if(str[j]=='R'&&str[(j+i)/2]=='G') sum--;
+                    if(str[j]=='G'&&str[(j+i)/2]=='R') sum--;
+                }else if(str[i]=='G'){
+                    if(str[j]=='B'&&str[(j+i)/2]=='R') sum--;
+                    if(str[j]=='R'&&str[(j+i)/2]=='B') sum--;
+                }
             }
         }
     }
-    cout<<sum<<endl;
+    //cout<<sum<<endl;
+    //cout<<r<<g<<b<<endl;
+    cout<<r*g*b+sum<<endl;
   return 0;
 }

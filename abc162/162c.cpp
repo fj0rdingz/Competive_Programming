@@ -1,6 +1,9 @@
+#include <cstdio>
 #include <queue>
 #include <iostream>
-#include <stdc++.h>
+#include <bits/stdc++.h>
+#include<stdio.h>
+#include<string.h>
 #include<fstream>
 
 #define F first
@@ -24,21 +27,21 @@ using namespace std;
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
-    ll i,j,k,x,y,z,p,q;
+       
+    ll i,j,k,p=1,q=1;
     ll n,m,tmp;
     string s[200000];
     string str;
     ll sum=0;
     ll strr[200005];
     cin>>n;
-    vector<int> a(n);
-    rep(i,n)   cin >> a[i];
-    {
-        {
-            {
-                
+    for(i=1;i<=n;i++){
+        for(j=1;j<=n;j++){
+            for(k=1;k<=n;k++){
+                sum+=gcd(gcd(i,j),k);
             }
         }
     }
-    return 0;
+    cout<<sum<<endl;
+  return 0;
 }
