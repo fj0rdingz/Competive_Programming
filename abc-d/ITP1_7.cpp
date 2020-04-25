@@ -1,4 +1,3 @@
-// lcmとかはg++ -std=c++17 default.cppみたいなかんじで
 #include <bits/stdc++.h>
 #define ll long long
 #define REP(i,m,n) for(ll i=(ll)(m);i<(ll)(n);i++)
@@ -11,9 +10,21 @@ int main() {
 
     ll i,j,k,l,m,n,w,x,y,z,p,q,tmp,sum=0;
     string str;
-    cin>>n;
-    vector<int> a(n);
-    rep(i,n)   cin >> a[i];
+    n=1,x=1;
+    while(1){
+    cin>>n>>x;
+    if(n==0&&x==0) return 0;
+    REP(i,1,n-1){
+        REP(j,i+1,n){
+            REP(k,j+1,n+1){
+                if(i+j+k==x) sum++;
+        
+    } 
+    }
+    }
+    cout<<sum<<endl;
+    sum=0;
+    }
 
     return 0;
 }

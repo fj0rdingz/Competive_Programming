@@ -1,4 +1,3 @@
-// lcmとかはg++ -std=c++17 default.cppみたいなかんじで
 #include <bits/stdc++.h>
 #define ll long long
 #define REP(i,m,n) for(ll i=(ll)(m);i<(ll)(n);i++)
@@ -11,9 +10,16 @@ int main() {
 
     ll i,j,k,l,m,n,w,x,y,z,p,q,tmp,sum=0;
     string str;
-    cin>>n;
-    vector<int> a(n);
-    rep(i,n)   cin >> a[i];
-
+    cin>>str;
+    ll maxx=0;
+    rep(i,str.length()){
+        if(str[i]=='A'||str[i]=='C'||str[i]=='G'||str[i]=='T'){
+            sum++;
+            maxx=max(sum,maxx);
+        }else{
+            sum=0;
+        }
+    }
+    cout<<maxx<<endl;
     return 0;
 }
