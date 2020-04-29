@@ -1,6 +1,4 @@
-// lcmとかはg++ -std=c++17 default.cppみたいなかんじで
-//vector<vector<ll>> piyo(tate,vector<ll> (yoko));
-
+// lcm、__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
 #include <bits/stdc++.h>
 #define ll long long
 #define REP(i,m,n) for(ll i=(ll)(m);i<(ll)(n);i++)
@@ -13,9 +11,16 @@ int main() {
 
     ll i,j,k,l,m,n,maxi=0,f=0,mini=1e10,sum=0;
     string str;
-    cin>>n;
-    vector<int> a(n);
-    rep(i,n)   cin >> a[i];
-
+    ll cnt=0;
+    ll a,b;
+    cin>>a>>b;
+    if(a*b%2){
+        sum++;
+    }
+    if(a==1||b==1){
+        cout<<1<<endl;
+        return 0;
+    }
+    cout<<a*b/2+sum;
     return 0;
 }
