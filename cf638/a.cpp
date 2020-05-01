@@ -18,9 +18,22 @@ int main() {
    	ios::sync_with_stdio(false);
 
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
-    string str;
+    string str1,str2;
     cin>>n;
     vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    rep(i,n){
+        cin>>a;
+        for(ll j=1,c=2;j<=a;j++,c*=2){
+            if(j==a||a/2-1>=j){
+                sum+=c;
+            }else{
+                f+=c;
+            }
+        }
+        cout<<sum-f<<endl;
+        sum=0;
+        f=0;
+    }   
+
     return 0;
 }
