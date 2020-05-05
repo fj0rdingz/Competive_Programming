@@ -41,6 +41,24 @@ int main() {
     ll a,b,d,c;
     //multiset<pair<string,ll>> s;
     cin>>n;
+    vector<pair<string, ll> > pairs(n);
+    vector<pair<string, ll> > moto(n);
+
+    rep(i,n){
+        cin>>str>>m;
+        pairs[i]=make_pair(str,m);
+        moto[i]=pairs[i];
+    }
+    sort(pairs.begin(), pairs.end(),my_compare);
+
+    rep(i,n){
+        rep(j,n){
+            if(moto[j].first.compare(pairs[i].first)==0&&moto[j].second==pairs[i].second){
+                cout<<j+1<<endl;
+                break;
+            }
+        }
+    }
 
     return 0;
 }
