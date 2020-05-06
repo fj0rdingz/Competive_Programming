@@ -13,6 +13,12 @@
 #define rep(i,n) REP(i,0,n)
 using namespace std;
 ll target;
+
+/*
+
+型を使いたいように合わせる！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+
+*/
 bool my_compare(pair<string, ll> a, pair<string , ll> b) {
     // 基本はfirstで比較
     if(a.first != b.first){

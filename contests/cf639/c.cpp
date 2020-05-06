@@ -22,13 +22,31 @@ int main() {
     ll k;
     cin>>k;
     rep(j,k){
-        cin>>n>>m;
-        if(n==1||m==1){
-            cout<<"YES"<<endl;
-        }else if(n==2&&m==2){
-            cout<<"YES"<<endl;
-        }else{
-            cout<<"NO"<<endl;        }
+        cin>>n;
+        vector<ll> v(n);
+        rep(i,n){
+            cin>>v[i];
+            v[i]=v[i]%n+n;
+            v[i]+=i+1;
+            //v[i]=v[i]%n;
+        }
+        rep(i,n){
+            cout<<v[i]<<" ";
+        }
+        cout<<endl;
+        set<ll> s;
+        ll size=0;
+        rep(i,n){
+            s.insert(v[i]);
+            if(size==(ll)(s.size())){
+                f=1;
+                break;
+            }
+            size=(ll)(s.size());
+        }
+        if(f==1) cout<<"NO"<<endl;
+        else cout<<"YES"<<endl;
+        f=0;
     }
     return 0;
 }
