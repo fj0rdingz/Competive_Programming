@@ -3,7 +3,7 @@
 
 #include <bits/stdc++.h>
 #define mod 1000000007
-#define INF 100000000001
+#define INF 100000001
 #define ll long long
 #define ln cout<<endl;
 #define Yes cout<<"Yes"<<endl
@@ -21,23 +21,21 @@ int main() {
     int maxi=0,f=0,sum=0,mini=INF;
     string str,str1,str2;
     int i;
-    double h;
-    int n,x,m;
+    int n;
     int a,b,d,c;
     int e,weight;
-    cin>>n>>weight;
-    vector<int> w(n);
-    vector<int> v(n);
+    cin>>n;
+    vector<int> x(n);
+    vector<int> y(n);
+    rep(i,n) cin>>x[i]>>y[i];
 
-    rep(i,n){
-        cin>>v[i]>>w[i];
-    }
-    for(ll i=0;i<120;i++){
-        for(ll j=0;j<1050;j++){
-            dp[i][j]=-INF;
-        }
-    }
-    dp[0][0]=0;
+    vector<int> h={0,1,2,3,4,5,6,7};
+    vector<int> w={0,1,2,3,4,5,6,7};
+    do{
+        do{
+
+        }while(next_permutation(w.begin(),w.end()));
+    }while(next_permutation(h.begin(),h.end()));
 
 
     return 0;
