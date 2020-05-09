@@ -13,18 +13,26 @@
 #define rep1(i,n) REP(i,1,n+1)
 using namespace std;
 
-
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,maxi=0,f=0,mini=INF;
+    ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>a>>b;
-    ll sum=b;
-    rep(i,a-1){
-        sum*=(b-1);
+    cin>>m;
+    ll k;
+    rep(i,m){
+        cin>>n>>k;
+        if(n==k){
+            cout<<n+1<<endl;
+        }else if(n==2){
+            cout<<k*2-1<<endl;
+            }else{
+            ll waru=k/(n-1);
+            ll target=waru*n+k%(n-1);
+            cout<<target<<endl;
+        }
     }
-    cout<<sum<<endl;
+
     return 0;
 }

@@ -13,18 +13,16 @@
 #define rep1(i,n) REP(i,1,n+1)
 using namespace std;
 
-
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,maxi=0,f=0,mini=INF;
+    ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>a>>b;
-    ll sum=b;
-    rep(i,a-1){
-        sum*=(b-1);
-    }
-    cout<<sum<<endl;
+    cin>>n>>m;
+    //vector<vector<ll>> v(tate,vector<ll> (yoko));
+    vector<ll> v(n);
+    rep(i,n)   cin >> v[i];
+
     return 0;
 }

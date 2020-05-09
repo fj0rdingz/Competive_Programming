@@ -1,5 +1,4 @@
-// lcmとかはg++ -std=c++17 default.cppみたいなかんじで
-//vector<vector<ll>> piyo(tate,vector<ll> (yoko));
+// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
 
 #include <bits/stdc++.h>
 #define mod 1000000007
@@ -20,8 +19,10 @@ int main() {
 
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
+    cin>>n>>m;
+    //vector<vector<ll>> v(tate,vector<ll> (yoko));
     vector<ll> v(n);
     rep(i,n)   cin >> v[i];
+
     return 0;
 }
