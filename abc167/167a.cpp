@@ -18,11 +18,18 @@ int main() {
    	ios::sync_with_stdio(false);
 
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
-    string str;
-    cin>>n;
+    string str,str1;
+    cin>>str>>str1;
+    f=1;
+    if(str.length()+1==str1.length()) {
+        rep(i,str.length()) if(str[i]!=str1[i])  f=0;
+    }
+    else f=0;
+    if(f==1) Yes;
+    else No;
     //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+
+
 
     return 0;
 }

@@ -16,13 +16,19 @@ using namespace std;
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
+    long n,q;
+    cin>>n>>q;
+    multiset<long> v;
+    vector<long> query(q);
+    long l;
+    rep(i,n) {
+        cin>>l;
+        v.insert(l);
+    }
+    rep(i,q) cin>>query[i];
+    
 
-    ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
-    string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+
 
     return 0;
 }

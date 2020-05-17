@@ -20,9 +20,10 @@ int main() {
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
     cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
-
+    cin>>str;
+    if(str.length()<n) n=str.length();
+    rep(i,n)cout<<str[i];
+    if(str.length()>n) cout<<"..."<<endl;
+    //else cout<<endl;
     return 0;
 }

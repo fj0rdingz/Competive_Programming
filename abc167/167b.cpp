@@ -19,10 +19,18 @@ int main() {
 
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    ll k;
+    cin>>a>>b>>c>>k;
+    if(a>k){
+        sum=k;
+    }else if(k<=a+b){
+        sum=a;
+    }else{
+        sum=a;
+        k=k-a-b;
+        sum-=k;
+    }
+    cout<<sum<<endl;
 
     return 0;
 }
