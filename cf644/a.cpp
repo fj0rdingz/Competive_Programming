@@ -1,3 +1,4 @@
+
 // lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
 
 #include <bits/stdc++.h>
@@ -18,9 +19,15 @@ int main() {
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
     cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    rep(i,n){
+        cin>>a>>b;
+        maxi=max(a,b);
+        mini=min(a,b);
+        if(mini*2>maxi) cout<<mini*2*mini*2<<endl;
+        else cout<<maxi*maxi<<endl;
 
+        maxi=0;
+        mini=INF;
+    }
     return 0;
 }

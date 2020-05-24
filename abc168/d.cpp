@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 #define mod 1000000007
 #define INF 1001001001
-#define ll long long
+#define ll int
 #define ln cout<<endl
 #define Yes cout<<"Yes"<<endl
 #define No cout<<"No"<<endl
@@ -19,25 +19,13 @@ ll n,m;
 
 //注意
 
-vector<set<ll>> s(300000);
-vector<pair<ll ,bool>> f(3000000);
+vector<set<ll>> s;
+vector<pair<ll ,bool>> f;
 deque<ll> q;
 
 
 void search(){
-    if(q.size()==0) return;
-    ll num=q.front();
-    q.pop_front();
-    //if(f[num].second==true) return;
-    //cout<<"num= "<<num<<" ";
-    for(auto itr=s[num].begin();itr!=s[num].end();++itr){
-        //cout<<*itr<<" ";
-        if(f[*itr].second==false){
-            f[*itr].second=true;
-            f[*itr].first=num;
-            q.push_back(*itr);
-        }
-    }
+
    // cout<<endl;
     search();
 }
@@ -62,8 +50,21 @@ int main() {
         s[d].insert(c);
     }
     q.push_back(0);
-    search();
-    ll flag=1;
+    while(!q.empty()){
+    if(q.size()==0) continue;;
+    ll num=q.front();
+    q.pop_front();
+    //if(f[num].second==true) return;
+    //cout<<"num= "<<num<<" ";
+    for(auto itr=s[num].begin();itr!=s[num].end();++itr){
+        //cout<<*itr<<" ";
+        if(f[*itr].second==false){
+            f[*itr].second=true;
+            f[*itr].first=num;
+            q.push_back(*itr);
+        }
+    }
+    }    ll flag=1;
     rep(i,n){
         if(f[i].second==false) flag=0;
     }

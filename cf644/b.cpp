@@ -17,10 +17,18 @@ int main() {
 
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
-
+    cin>>a;
+    rep(i,a){
+        cin>>n;
+        //vector<vector<ll>> v(tate,vector<ll> (yoko));
+        vector<ll> v(n);
+        rep(i,n)   cin >> v[i];
+        sort(v.begin(),v.end());
+        rep(i,n-1) {
+            mini=min(mini,v[i+1]-v[i]);
+        }
+        cout<<mini<<endl;
+        mini=INF;
+    }
     return 0;
 }
