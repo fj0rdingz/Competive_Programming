@@ -74,6 +74,7 @@ int main() {
 
         rep(i,n){
             b=vp[i].second-wp[i].second;
+            if(b<0) b=b+n;
             ans[b]++;
             s.insert(b);
         }
