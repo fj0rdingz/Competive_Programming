@@ -17,10 +17,22 @@ int main() {
 
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    cin>>d;
+    rep(_,d){
+        cin>>a>>b>>c;
+        n=c/a;
+        //cout<<n<<endl;
+        //n--;
+        ll ans=n*a;
+       // ans--;
+
+       if((ans+b)<=c){
+        cout<<ans+b<<endl;
+       }else{
+           ans-=a;
+           cout<<ans+b<<endl;
+       }
+    }
 
     return 0;
 }

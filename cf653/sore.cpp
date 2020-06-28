@@ -1,41 +1,23 @@
 #include <bits/stdc++.h>
-#define ll long long
 using namespace std;
-
-vector<ll> a = {1, 14, 32, 51, 51, 51, 243, 419, 750, 910};
-
-// index が条件を満たすかどうか
-bool isOK(ll index, ll key) {
-    if (a[index] >= key) return true;
-    else return false;
-}
-
-// 汎用的な二分探索のテンプレ
-ll binary_search(ll key) {
-    ll ng = -1; //「index = 0」が条件を満たすこともあるので、初期値は -1
-    ll ok = (ll)a.size(); // 「index = a.size()-1」が条件を満たさないこともあるので、初期値は a.size()
-
-    /* ok と ng のどちらが大きいかわからないことを考慮 */
-    while (abs(ok - ng) > 1) {
-        ll mid = (ok + ng) / 2;
-
-        if (isOK(mid, key)) ok = mid;
-        else ng = mid;
+map< int64_t, int > prime_factor(int64_t n) {
+  map< int64_t, int > ret;
+  for(int64_t i = 2; i * i <= n; i++) {
+    while(n % i == 0) {
+      ret[i]++;
+      n /= i;
     }
-    return ok;
+  }
+  if(n != 1) ret[n] = 1;
+  return ret;
 }
 
 int main() {
-    ll n;
-    //cin>>n;
-    //vector<ll> v(n);
-    //for(ll i=0;i<n;i++) cin>>v[i];
-
-    cout << a[binary_search(51)] << endl; // a[3] = 51 (さっきは 4 を返したが今回は「最小の index」なので 3)
-    cout << binary_search(1) << endl; // a[0] = 1
-    cout << binary_search(910) << endl; // a[9] = 910
-
-    cout << binary_search(52) << endl; // 6
-    cout << binary_search(0) << endl; // 0
-    cout << binary_search(911) << endl; // 10 (場外)
+  int n;
+  cin >> n;
+  cout << n << ":";
+  for(auto p : prime_factor(n)) {
+    while(p.second--) cout << " " << p.first;
+  }
+  cout << endl;
 }

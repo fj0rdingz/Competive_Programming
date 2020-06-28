@@ -11,32 +11,29 @@
 #define rep(i,n) REP(i,0,n)
 using namespace std;
 
+
+struct CompareByFirst {
+constexpr bool operator()(pair<int, int> const & a,
+pair<int, int> const & b) const noexcept
+{ return a.first > b.first; }
+};
+
+
+
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
+    ll c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>d;
-    rep(_,d){
-        a=0;
-        b=0;
-        cin>>n;
-        cin>>str;
-        rep(i,n){
-            if(str[i]=='(') {
-                a++;
-            }
-            else if(str[i]==')'&&a<=0){
-                b++;
-                
-            }else{
-                a--;
-            }
-        }
-        cout<<b<<endl;
-
-    }
-
+ll k;
+        priority_queue<pair<int, int>,
+        std::vector<pair<int, int> >,
+        CompareByFirst> pq;
+        pair<int,int> p;
+        p=make_pair(1,2);
+        pq.push(p);
     return 0;
+    
+
 }

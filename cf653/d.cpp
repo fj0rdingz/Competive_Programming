@@ -15,12 +15,40 @@ int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
+    ll a,b,c,d,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    ll k;
+    cin>>d;
+    rep(_,d){
+        cin>>n>>k;
+        //vector<vector<ll>> v(tate,vector<ll> (yoko));
+        vector<ll> v(n);
+        map<ll,ll> m;
+        set<ll> s;
+        rep(i,n)   cin >> v[i];
+        rep(i,n){
+            if(v[i]%k!=0){
+                s.insert(v[i]%k);
+                m[v[i]%k]++;
+            }
+        }
+        ll minnum=0;
+        ll lastitr=0;
+        for(auto itr=s.begin();itr!=s.end();++itr){
+            if(m[*itr]>minnum){
+                    lastitr=*itr;
+                    minnum=m[*itr];
+            }
+            else if(minnum==m[*itr]&&*itr<lastitr){
+                    lastitr=*itr;
+                    minnum=m[*itr];
+                }
+            
+        }
+        if((minnum-1)*k+k-(lastitr)==0) cout<<0<<endl;
+        else cout<<(minnum-1)*k+k-(lastitr)+1<<endl;
+    }
+
 
     return 0;
 }
