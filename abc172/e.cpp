@@ -17,15 +17,10 @@ int main() {
 
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>str;
-    sum=str.length()*(str.length()-1);
-    rep(i,str.length()){
-      if(str[i]=='U'){
-        sum+=i;
-      }else{
-        sum+=str.length()-i-1;
-      }
-    }
-    cout<<sum<<endl;
+    cin>>n;
+    //vector<vector<ll>> v(tate,vector<ll> (yoko));
+    vector<ll> v(n);
+    rep(i,n)   cin >> v[i];
+
     return 0;
 }

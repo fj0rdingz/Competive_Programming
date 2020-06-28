@@ -31,7 +31,7 @@ int main() {
     //vector<ll> v(n);
     //for(ll i=0;i<n;i++) cin>>v[i];
 
-    cout << a[binary_search(51)] << endl; // a[3] = 51 (「最小の index」なので 3)
+    cout << a[binary_search(51)] << endl; // a[3] = 51 (さっきは 4 を返したが今回は「最小の index」なので 3)
     cout << binary_search(1) << endl; // a[0] = 1
     cout << binary_search(910) << endl; // a[9] = 910
 

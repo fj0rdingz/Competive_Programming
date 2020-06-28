@@ -16,16 +16,13 @@ int main() {
    	ios::sync_with_stdio(false);
 
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
-    string str;
+    string str,str1;
     cin>>str;
-    sum=str.length()*(str.length()-1);
+    cin>>str1;
     rep(i,str.length()){
-      if(str[i]=='U'){
-        sum+=i;
-      }else{
-        sum+=str.length()-i-1;
-      }
+        if(str[i]!=str1[i]) sum++;
     }
     cout<<sum<<endl;
+
     return 0;
 }
