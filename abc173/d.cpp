@@ -17,18 +17,19 @@ int main() {
 
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    ll s;
-    cin>>s>>c;
-    if(s*2>=c){
-      sum=c/2;
-      cout<<sum<<endl;
-    }else{
-      sum=s;
-      c-=s*2;
-      sum+=c/4;
-      
-      cout<<sum<<endl;
-      
+    cin>>n;
+    vector<ll> v(n);
+    priority_queue<ll> q;
+    rep(i,n)   cin >> v[i];
+    sort(v.begin(),v.end(),std::greater<ll>());
+    q.push(v[0]);
+    for(ll i=1;i<n;i++) {
+        sum+=q.top();
+        q.pop();
+        q.push(v[i]);
+        q.push(v[i]);
     }
+    cout<<sum<<endl;
+
     return 0;
 }

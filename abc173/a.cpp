@@ -17,18 +17,10 @@ int main() {
 
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    ll s;
-    cin>>s>>c;
-    if(s*2>=c){
-      sum=c/2;
-      cout<<sum<<endl;
-    }else{
-      sum=s;
-      c-=s*2;
-      sum+=c/4;
-      
-      cout<<sum<<endl;
-      
-    }
+    cin>>n;
+    n=n%1000;
+    if(n==0) cout<<0<<endl;
+    else cout<<abs(n-1000)<<endl;
+
     return 0;
 }

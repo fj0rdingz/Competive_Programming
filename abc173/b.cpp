@@ -17,18 +17,22 @@ int main() {
 
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    ll s;
-    cin>>s>>c;
-    if(s*2>=c){
-      sum=c/2;
-      cout<<sum<<endl;
-    }else{
-      sum=s;
-      c-=s*2;
-      sum+=c/4;
-      
-      cout<<sum<<endl;
-      
+    cin>>n;
+    a=0;
+    b=0;
+    c=0;
+    d=0;
+    rep(i,n){
+        cin>>str;
+        if(str=="AC") a++;
+        if(str=="WA") b++;
+        if(str=="TLE") c++;
+        if(str=="RE") d++;
     }
+    cout<<"AC x "<<a<<endl;
+    cout<<"WA x "<<b<<endl;
+    cout<<"TLE x "<<c<<endl;
+    cout<<"RE x "<<d<<endl;
+
     return 0;
 }
