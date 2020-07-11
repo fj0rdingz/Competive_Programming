@@ -79,8 +79,6 @@ int main() {
     ll ps=0,ms=0;
     rep(i,n)   {
         cin >> v[i];
-        if(v[i]>0) ps++;
-        else ms++;
     }
     vector<ll> p;
     vector<ll> m;
@@ -95,11 +93,11 @@ int main() {
     if(k%2) {
         if(p.size()>=1){
             sum=p[0];
-            p.erase(p.begin());
+            p.erase(p.begin()+1);
             k--;
         }else{
             sum=m[0];
-            m.erase(m.begin());
+            m.erase(m.begin()+1);
             k--;
         }
     }
