@@ -2,7 +2,7 @@
 
 #include <bits/stdc++.h>
 #define mod 1000000007
-#define INF 1001001001
+#define INF LLONG_MAX
 #define ll long long
 #define ln cout<<endl
 #define Yes cout<<"Yes"<<endl
@@ -15,15 +15,16 @@ int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
+    ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
     cin>>n;
-    vector<ll> b(n);
-    vector<ll> a(n);
-    rep(i,n) cin>>a[i]>>b[i];
-    for(ll i=n-1;i>=0;i--){
-      if(a[i]!=0&&b[i]!=1&&(a[i]+sum)%b[i]!=0)sum+=abs((b[i])-(a[i]+sum)%b[i]);
+    a=9;
+    for(ll i=400;i<2000;i+=200){
+        a--;
+        if(i<=n&&n<i+200){
+            cout<<a<<endl;
+        }
     }
-    cout<<sum<<endl;
+
     return 0;
 }
