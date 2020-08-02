@@ -18,8 +18,24 @@ int main() {
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
     cin>>n;
-    if(30<=n) Yes;
-    else No;
-
+    a=7;
+    ll lastper=7;
+    rep(i,1000001){
+        //cout<<"a="<<a<<" lastper="<<lastper<<endl;
+        if(a%n==0){
+            cout<<i+1<<endl;
+            return 0;
+        }
+        if(f==0){
+            lastper*=10;
+            a+=lastper;
+            if(lastper>=n) f=1;
+        }else{
+            lastper*=10;
+            lastper%=n;
+            a+=lastper;
+        }
+    }
+    cout<<-1<<endl;
     return 0;
 }

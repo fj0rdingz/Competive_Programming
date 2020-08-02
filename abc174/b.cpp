@@ -17,9 +17,16 @@ int main() {
 
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    if(30<=n) Yes;
-    else No;
+    cin>>n>>a;
+    //vector<vector<ll>> v(tate,vector<ll> (yoko));
+    vector<double> v(n);
+    vector<double> w(n);
+    rep(i,n)   cin >> v[i]>>w[i];
+    rep(i,n){
+        //cout<<sqrt(v[i]*v[i]+w[i]*w[i])<<endl;
+        if(sqrt(v[i]*v[i]+w[i]*w[i])<=a) sum++;
+    }
+    cout<<sum<<endl;
 
     return 0;
 }

@@ -18,8 +18,14 @@ int main() {
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
     cin>>n;
-    if(30<=n) Yes;
-    else No;
-
+    cin>>str;
+    rep(i,str.length()){
+        if(str[i]=='R') sum++;
+    }
+    b=sum;
+    rep(i,b){
+        if(str[i]=='R') sum--;
+    }
+cout<<sum<<endl;    
     return 0;
 }
