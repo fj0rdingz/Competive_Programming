@@ -9,6 +9,7 @@
 #define No cout<<"No"<<endl
 #define REP(i,m,n) for(ll i=(ll)(m);i<(ll)(n);i++)
 #define rep(i,n) REP(i,0,n)
+#define all(x) (x).begin(),(x).end()
 using namespace std;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
@@ -19,10 +20,21 @@ int main() {
 
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
-
+    cin>>d;
+    rep(_,d){
+        f=0;
+        cin>>n;
+        vector<ll> v(n);
+        rep(i,n)   cin >> v[i];
+        sort(all(v));
+        rep(i,n-1) {
+            if(2<=abs(v[i]-v[i+1])) {
+                f=1;
+                break;
+            }
+        }
+        if(f==0) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+    }
     return 0;
 }

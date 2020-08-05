@@ -2,43 +2,34 @@
 
 #include <bits/stdc++.h>
 #define mod 1000000007
-#define INF 1001001001
+#define INF LLONG_MAX
 #define ll long long
-#define ln cout << endl
-#define Yes cout << "Yes" << endl
-#define No cout << "No" << endl
-#define REP(i, m, n) for (ll i = (ll)(m); i < (ll)(n); i++)
-#define rep(i, n) REP(i, 0, n)
+#define ln cout<<endl
+#define Yes cout<<"Yes"<<endl
+#define No cout<<"No"<<endl
+#define REP(i,m,n) for(ll i=(ll)(m);i<(ll)(n);i++)
+#define rep(i,n) REP(i,0,n)
+#define all(x) (x).begin(),(x).end()
 using namespace std;
+ll dx[4]={1,0,-1,0};
+ll dy[4]={0,1,0,-1};
 
-int main()
-{
-  ll a, b, c, d, m, n, maxi = 0, f = 0, mini = INF, sum = 0;
-  //string str;
-  ll h, w, k;
-  cin >> h >> w;
-  //vector<vector<ll>> v(tate,vector<ll> (yoko));
-  vector<string> str(h);
-  rep(i, h) cin >> str[i];
-  for (ll hbit = 0; hbit < (1 << h); ++hbit){
-    for (ll wbit = 0; wbit < (1 << w); ++wbit){
-      sum = 0;
-      for (int i = 0; i < h; ++i){
-        for (int j = 0; j < w; ++j){
-          if (hbit & (1 << i) && wbit & (1 << j) || !(hbit & (1 << i)) && !(wbit & (1 << j))){
-            if (str[i][j] == '1') sum++;
-          }
-          else{
-            if (str[i][j] == '0') sum++;
-          }
-          f++;
-        }
-      }
-      maxi = max(maxi, sum);
+
+int main() {
+    cin.tie(0);
+   	ios::sync_with_stdio(false);
+
+    ll a,b,c,d,n,maxi=0,f=0,mini=INF,sum=0;
+    ll h,w;
+    ll m;
+    cin>>n;
+    n*=3;
+    vector<ll> v(n);
+    rep(i,n) cin>>v[i];
+    sort(all(v));
+    for(ll i=n/3;i<n;i=i+2){
+        //cout<<i<<endl;
+        sum+=v[i];
     }
-  }
-  cout<<f<<endl;
-  cout << maxi << endl;
-
-  return 0;
+    cout<<sum<<endl;
 }
