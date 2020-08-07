@@ -19,7 +19,7 @@ ll target;
 型を使いたいように合わせる！！！！！！！！！！！！！！！！！！！！！！！！！！！！
 
 */
-bool my_compare(pair<string, ll> a, pair<string , ll> b) {
+bool comp(pair<ll, ll> a, pair<ll , ll> b) {
     // 基本はfirstで比較
     if(a.first != b.first){
          return a.first < b.first; // 昇順
@@ -55,7 +55,7 @@ int main() {
         pairs[i]=make_pair(str,m);
         moto[i]=pairs[i];
     }
-    sort(pairs.begin(), pairs.end(),my_compare);
+    sort(pairs.begin(), pairs.end(),comp);
 
     rep(i,n){
         rep(j,n){

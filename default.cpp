@@ -1,4 +1,4 @@
-// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
+// lcmとか__builtin_popcountとかはg++ -gcd  default.cppみたいなかんじで
 
 #include <bits/stdc++.h>
 #define mod 1000000007
@@ -10,6 +10,7 @@
 #define REP(i,m,n) for(ll i=(ll)(m);i<(ll)(n);i++)
 #define rep(i,n) REP(i,0,n)
 #define all(x) (x).begin(),(x).end()
+#define rall(x) (x).rbegin(),(x).rend()
 using namespace std;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
