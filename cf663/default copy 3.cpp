@@ -1,4 +1,4 @@
-// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
+// lcmとか__builtin_popcountとかはg++ -gcd  default.cppみたいなかんじで
 
 #include <bits/stdc++.h>
 #define mod 1000000007
@@ -19,24 +19,12 @@ int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,d,n,maxi=0,f=0,mini=INF,sum=0;
+    ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
+    string str;
     cin>>n;
+    //vector<vector<ll>> v(tate,vector<ll> (yoko));
     vector<ll> v(n);
-    rep(i,n) cin>>v[i];
-    map<ll,ll> m;
-    set<ll> s;
-    rep(i,n) s.insert(v[i]);
-    vector<ll> w;
-    for(auto itr=s.begin();itr!=s.end();++itr){
-        w.push_back(*itr);
-    }
-    sort(all(w));
-    //pair<ll,ll> p(w.size);
-    rep(i,w.size()){
-        m[w[i]]=i;
-    }
-    rep(i,n){
-        cout<<m[v[i]]<<endl;
-    }
+    rep(i,n)   cin >> v[i];
+
     return 0;
 }
