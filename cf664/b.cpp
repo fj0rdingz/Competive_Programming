@@ -23,10 +23,26 @@ int main() {
 
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    ll h,w,x,y;
+    cin>>h>>w>>x>>y;
+    cout<<x<<" "<<y<<endl;
+    ll lastx;
+    rep(i,w){
+        if(y==i+1) continue;
+        else cout<<x<<" "<<i+1<<endl;
+        lastx=i+1;
+    }
+    ll nextx=lastx;
+    for(ll i=1;i<=h;i++){
+        lastx=nextx;
+        if(i==x) continue;
+        cout<<i<<" "<<lastx<<endl;
+        for(ll j=1;j<=w;j++){
+            if(j==lastx) continue;
+            cout<<i<<" "<<j<<endl;
+            nextx=j;
+        }
+    }
 
     return 0;
 }

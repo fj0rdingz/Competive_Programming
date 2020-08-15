@@ -24,9 +24,17 @@ int main() {
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
     cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    vector<pair<ll,ll>> p;
+    a=n;
+
+    if(n%2)n--;
+    n/=2;
+    for(ll i=1;i<=n;i++){
+        p.push_back(make_pair(i,n+1-i));
+        cout<<i<<" "<<n+1-i<<endl;
+    }
+
+
 
     return 0;
 }

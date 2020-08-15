@@ -1,4 +1,4 @@
-// lcmとか__builtin_popcountとかはg++ -gcd  default.cppみたいなかんじで
+// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
 
 #include <bits/stdc++.h>
 #define mod 1000000007
@@ -6,6 +6,8 @@
 #define ll long long
 #define ln cout<<endl
 #define Yes cout<<"Yes"<<endl
+#define NO cout<<"NO"<<endl
+#define YES cout<<"YES"<<endl
 #define No cout<<"No"<<endl
 #define REP(i,m,n) for(ll i=(ll)(m);i<(ll)(n);i++)
 #define rep(i,n) REP(i,0,n)

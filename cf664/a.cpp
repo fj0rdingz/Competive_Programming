@@ -23,10 +23,26 @@ int main() {
 
     ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
-
+    cin>>n>>m;
+    ll v[n];
+    ll w[m];
+    rep(i,n) cin>>v[i];
+    rep(i,m) cin>>w[i];
+    vector<ll> ans(m);
+    vector<ll> ans2(n);
+    rep(j,m){
+        rep(i,n){
+            ans[j]|=v[i]&w[j];
+        }
+    }
+    rep(j,m){
+        rep(i,n){
+            ans2[i]|=v[i]&w[j];
+        }
+    }
+    rep(i,n) cout<<ans2[i]<<" ";
+    ln;
+    cout<<*min_element(all(ans))<<endl;
+    
     return 0;
 }
