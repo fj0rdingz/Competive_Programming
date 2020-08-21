@@ -1,5 +1,5 @@
 // lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
-// -fsanitize=undefinedでオーバーフロー検出
+
 #include <bits/stdc++.h>
 #define mod 1000000007
 #define INF LLONG_MAX
@@ -21,12 +21,22 @@ int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
+    ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0,loop;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    cin>>loop;
+    rep(_,loop){
+        cin>>a>>b;
+        if(a<=b){
+            cout<<b-a<<endl;
+        }else{
+            if((b-a)%2==0){
+                cout<<0<<endl;
+            }else{
+                cout<<1<<endl;
+            }
+        }
+    }
+
 
     return 0;
 }

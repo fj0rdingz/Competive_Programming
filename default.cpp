@@ -1,5 +1,5 @@
 // lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
-
+// -fsanitize=undefinedでオーバーフロー検出
 #include <bits/stdc++.h>
 #define mod 1000000007
 #define INF LLONG_MAX
