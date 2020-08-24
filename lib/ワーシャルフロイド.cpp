@@ -34,8 +34,9 @@ int main() {
         else d[i][j]=INF;
     }
     rep(i,e){
-        cin>>a>>b>>c;;
-        d[a][b]=c;;
+        cin>>a>>b>>c;
+        d[a][b]=c;
+        //d[b][a]=c;
     }
     rep(k,V)rep(i,V)rep(j,V){
         d[i][j]=min(d[i][j],d[i][k]+d[k][j]);
