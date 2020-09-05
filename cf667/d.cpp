@@ -14,7 +14,6 @@
 #define all(x) (x).begin(),(x).end()
 #define rall(x) (x).rbegin(),(x).rend()
 using namespace std;
-typedef pair<ll,ll> P;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
 
@@ -26,10 +25,33 @@ int main() {
     string str;
     cin>>loop;
     rep(_,loop){
-        cin>>n;
-        //vector<vector<ll>> v(tate,vector<ll> (yoko));
-        vector<ll> v(n);
-        rep(i,n)   cin >> v[i];
+        cin>>n>>a;
+        ll keta=0;
+        b=n;
+        while(n>0){
+            keta++;
+            n/=10;
+        }
+        n=b;
+       // ll nketame=pow(10,keta-2);
+       ll nketame=1;
+       rep(i,keta){
+           nketame=10*nketame;
+           //f=12;
+       }
+        ll sum=0;
+        while(n>=0&&nketame!=1){
+            sum+=n%nketame;
+            if(sum>a) break;
+            nketame/=10;
+        }
+        n=b;
+        //cout<<nketame<<endl;
+        n%=(nketame/100);
+        nketame/=100;
+        cout<<n<<endl;
+        c=nketame-n;
+        cout<<c<<endl;
     }
 
 

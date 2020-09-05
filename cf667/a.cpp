@@ -14,7 +14,6 @@
 #define all(x) (x).begin(),(x).end()
 #define rall(x) (x).rbegin(),(x).rend()
 using namespace std;
-typedef pair<ll,ll> P;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
 
@@ -26,10 +25,10 @@ int main() {
     string str;
     cin>>loop;
     rep(_,loop){
-        cin>>n;
-        //vector<vector<ll>> v(tate,vector<ll> (yoko));
-        vector<ll> v(n);
-        rep(i,n)   cin >> v[i];
+        cin>>a>>b;
+        c=abs(b-a)/10;
+        if(abs(b-a)%10) c++;
+        cout<<c<<endl;
     }
 
 

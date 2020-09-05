@@ -5,3 +5,4 @@ fmv@FMV-PC:/mnt/d/競プロ/TrashBox/abc-d$ g++ -g 111c.cpp
 fmv@FMV-PC:/mnt/d/競プロ/TrashBox/abc-d$ gdb ./a.out
 r
 入力したいのを入力
+backtrace
