@@ -22,7 +22,7 @@ int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0,loop;
+    ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0,loop;
     string str;
     cin>>loop;
     rep(_,loop){
@@ -30,6 +30,21 @@ int main() {
         //vector<vector<ll>> v(tate,vector<ll> (yoko));
         vector<ll> v(n);
         rep(i,n)   cin >> v[i];
+        reverse(all(v));
+        ll total=0;
+        ll sum=0;
+        rep(i,n){
+           // cout<<v[i]<<" ";
+            if(sum<v[i]){
+                total+=v[i]-sum;
+                sum=0;
+            }else{
+                
+                sum-=v[i];
+            }
+        }
+        //ln;
+        cout<<total<<endl;
     }
 
 

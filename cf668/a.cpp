@@ -22,14 +22,16 @@ int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0,loop;
+    ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0,loop;
     string str;
     cin>>loop;
     rep(_,loop){
         cin>>n;
-        //vector<vector<ll>> v(tate,vector<ll> (yoko));
         vector<ll> v(n);
         rep(i,n)   cin >> v[i];
+        reverse(all(v));
+        rep(i,n) cout<<v[i]<<" ";
+        ln;
     }
 
 
