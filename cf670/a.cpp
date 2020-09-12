@@ -33,6 +33,27 @@ int main() {
         //vector<vector<ll>> v(tate,vector<ll> (yoko));
         vector<ll> v(n);
         rep(i,n)   cin >> v[i];
+        map<ll,ll> mp;
+        rep(i,n) mp[v[i]]++;
+        a=0;
+        b=0;
+        rep(i,105){
+            if(mp[i]!=0){
+                mp[i]--;
+                a=i+1;
+            }else{
+                break;
+            }
+        }
+        rep(i,105){
+            if(mp[i]!=0){
+                mp[i]--;
+                b=i+1;
+            }else{
+                break;
+            }
+        }
+        cout<<a+b<<endl;
     }
 
 

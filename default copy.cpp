@@ -1,6 +1,8 @@
 // lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
+// g++ hoge.cpp -std=c++17 -I . でコンパイルできる
 // -fsanitize=undefinedでオーバーフロー検出
 #include <bits/stdc++.h>
+//#include <atcoder/all>
 #define mod 1000000007
 #define INF LLONG_MAX
 #define ll long long
@@ -14,6 +16,7 @@
 #define all(x) (x).begin(),(x).end()
 #define rall(x) (x).rbegin(),(x).rend()
 using namespace std;
+//using namespace atcoder;
 typedef pair<ll,ll> P;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};

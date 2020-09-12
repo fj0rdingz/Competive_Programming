@@ -7,7 +7,7 @@ const int MOD = 1000000007;
 long long fac[MAX], finv[MAX], inv[MAX];
 
 // テーブルを作る前処理
-void COMinit() {
+void cominit() {
     fac[0] = fac[1] = 1;
     finv[0] = finv[1] = 1;
     inv[1] = 1;
@@ -19,7 +19,7 @@ void COMinit() {
 }
 
 // 二項係数計算
-long long COM(int n, int k){
+long long com(int n, int k){
     if (n < k) return 0;
     if (n < 0 || k < 0) return 0;
     return fac[n] * (finv[k] * finv[n - k] % MOD) % MOD;
@@ -27,8 +27,8 @@ long long COM(int n, int k){
 
 int main() {
     // 前処理
-    COMinit();
+    cominit();
 
     // 計算例
-    cout << COM(100000, 50000) << endl;
+    cout << com(100000, 50000) << endl;
 }
