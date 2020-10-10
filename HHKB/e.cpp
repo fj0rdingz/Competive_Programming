@@ -75,26 +75,24 @@ public:
         return os;
     }
 };
+mint dfs(ll x,ll y,mint lights,vector<ll> v,mint sum){
+
+}
 
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,d,m,n,k,x,y,maxi=0,f=0,mini=INF;
-    mint sum=0;
-    string str;
-    cin>>n;
-    vector<ll> v(n);
-    rep(i,n) cin>>v[i];
-    set<ll> s;
-    map<ll,ll> mp;
-    rep(i,n) {
-        s.insert(v[i]);
-        mp[v[i]]++;
-    }for(auto itr=s.begin();itr!=s.end();++itr)
-    {
-        maxi=max(mp[*itr],maxi);
-    } 
-    cout<<n-maxi<<endl;
+    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
+    ll h,w;
+    cin>>h>>w;
+    bool chk[h][w];
+    rep(i,h)rep(j,w) chk[i][j]=false;
+    string str[h];
+    rep(i,h) cin>>str[i];
+    rep(i,h)rep(j,w){
+        vector<ll> v;
+       // if(!chk[i][j]) bfs(i,j,0,v,0);
+    }
     return 0;
 }

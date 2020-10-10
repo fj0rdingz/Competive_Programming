@@ -1,4 +1,4 @@
-// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで str[0]=toupper(str[0]);
+// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
 // g++ hoge.cpp -std=c++17 -I . でコンパイルできる
 // -fsanitize=undefinedでオーバーフロー検出
 #include <bits/stdc++.h>
@@ -26,11 +26,16 @@ int main() {
    	ios::sync_with_stdio(false);
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
-    string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
-
+    ll h,w;
+    cin>>h>>w;
+    string str[h];
+    rep(i,h) cin>>str[i];
+    rep(i,h){
+        rep(j,w){
+            if(j!=w-1&&str[i][j]=='.'&&str[i][j+1]=='.') sum++;
+            if(i!=h-1&&str[i][j]=='.'&&str[i+1][j]=='.') sum++;
+        }
+    }
+    cout<<sum<<endl;
     return 0;
 }

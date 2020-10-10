@@ -27,10 +27,15 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    char ch;
+    cin>>ch>>str;
+    if(ch=='Y'){
+        str[0]=toupper(str[0]);
+        cout<<str[0]<<endl;
+    }else{
+        cout<<str<<endl;
+    }
+    
 
     return 0;
 }
