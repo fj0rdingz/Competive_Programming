@@ -6,6 +6,8 @@
             "command": "/usr/bin/gcc",
             "args": [
                 "-g",
+                //"-std=c++17",
+                //"-fsanitize=undefined",
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"

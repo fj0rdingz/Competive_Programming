@@ -27,10 +27,9 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    cin>>a>>b>>c>>d;
+    if(a+b==c+d||a+c==b+d||a+d==b+c||a==b+c+d||b==a+c+d||c==a+b+d||d==a+b+c) Yes;
+    else No;
 
     return 0;
 }

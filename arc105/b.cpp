@@ -27,41 +27,15 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n>>str;
-    string temp;
-    ll start=0;
-    ll comps=0;
-    ll cur=0;
-    ll anss[2500];
-    anss[0]=0;
-    for(ll i=1;i<2500;i++){
-        anss[i]=anss[i-1]+i;
-    }
-    while(start<n){
-        cur=0;
-        for(ll j=start;j<n;j+=2){
-            if(str[j]=='A'&&str[j+1]=='T'||str[j]=='T'&&str[j+1]=='A'||str[j]=='C'&&str[j+1]=='G'||str[j]=='G'&&str[j+1]=='C'){
-                cur++;
-            }else{
-                start=j+=2;
-                break;
-            }
-        sum+=anss[cur];
-        }
-    }
-    start=1;
-    while(start<n){
-        cur=0;
-        for(ll j=start;j<n;j+=2){
-            if(str[j]=='A'&&str[j+1]=='T'||str[j]=='T'&&str[j+1]=='A'||str[j]=='C'&&str[j+1]=='G'||str[j]=='G'&&str[j+1]=='C'){
-                cur++;
-            }else{
-                start=j+=2;
-                break;
-            }
-        sum+=anss[cur];
-        }
+    cin>>n;
+    //vector<vector<ll>> v(tate,vector<ll> (yoko));
+    vector<ll> v(n);
+    rep(i,n)   cin >> v[i];
+    sum=v[0];
+    rep(i,n){
+        sum=gcd(sum,v[i]);
     }
     cout<<sum<<endl;
+
     return 0;
 }

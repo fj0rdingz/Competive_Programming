@@ -1,8 +1,6 @@
 // lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
-// g++ hoge.cpp -std=c++17 -I . でコンパイルできる
 // -fsanitize=undefinedでオーバーフロー検出
 #include <bits/stdc++.h>
-//#include <atcoder/all>
 #define mod 1000000007
 #define INF LLONG_MAX
 #define ll long long
@@ -16,85 +14,32 @@
 #define all(x) (x).begin(),(x).end()
 #define rall(x) (x).rbegin(),(x).rend()
 using namespace std;
-//using namespace atcoder;
-typedef pair<ll,ll> P;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-class mint {
-    long long x;
-public:
-    mint(long long x=0) : x((x%mod+mod)%mod) {}
-    mint operator-() const { 
-      return mint(-x);
-    }
-    mint& operator+=(const mint& a) {
-        if ((x += a.x) >= mod) x -= mod;
-        return *this;
-    }
-    mint& operator-=(const mint& a) {
-        if ((x += mod-a.x) >= mod) x -= mod;
-        return *this;
-    }
-    mint& operator*=(const  mint& a) {
-        (x *= a.x) %= mod;
-        return *this;
-    }
-    mint operator+(const mint& a) const {
-        mint res(*this);
-        return res+=a;
-    }
-    mint operator-(const mint& a) const {
-        mint res(*this);
-        return res-=a;
-    }
-    mint operator*(const mint& a) const {
-        mint res(*this);
-        return res*=a;
-    }
-    mint pow(ll t) const {
-        if (!t) return 1;
-        mint a = pow(t>>1);
-        a *= a;
-        if (t&1) a *= *this;
-        return a;
-    }
-    // for prime mod
-    mint inv() const {
-        return pow(mod-2);
-    }
-    mint& operator/=(const mint& a) {
-        return (*this) *= a.inv();
-    }
-    mint operator/(const mint& a) const {
-        mint res(*this);
-        return res/=a;
-    }
 
-    friend ostream& operator<<(ostream& os, const mint& m){
-        os << m.x;
-        return os;
-    }
+struct Edge{
+    ll to;
+    ll d;
 };
+typedef pair<ll,ll> P;
+
+// problem http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A&lang=ja
 
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,d,m,n,k,x,y,maxi=0,f=0,mini=INF;
-    mint sum=0;
+    ll a,b,c,m,n,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    vector<ll> v(n);
-    rep(i,n) cin>>v[i];
-    set<ll> s;
-    map<ll,ll> mp;
-    rep(i,n) {
-        s.insert(v[i]);
-        mp[v[i]]++;
-    }for(auto itr=s.begin();itr!=s.end();++itr)
-    {
-        maxi=max(mp[*itr],maxi);
-    } 
-    cout<<n-maxi<<endl;
+    ll V,r;
+    string ans="";
+    a=INF*INF;
+    a=gcd(c,b);
+    // Vがノード数aがedge数rが始点
+    while(cin>>str){
+        ans+=str;
+        ans+=",";
+    }
+    cout<<ans.substr(0,ans.length()-1)<<endl;
     return 0;
 }
