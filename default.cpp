@@ -6,6 +6,7 @@
 #define mod 1000000007
 #define INF LLONG_MAX
 #define ll long long
+#define endl '\n'
 #define ln cout<<endl
 #define Yes cout<<"Yes"<<endl
 #define NO cout<<"NO"<<endl

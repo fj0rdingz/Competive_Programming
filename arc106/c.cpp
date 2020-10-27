@@ -28,10 +28,17 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    cin>>n>>m;
+    if(m<0){
+        cout<<-1<<endl;
+        return 0;
+    }
+    rep(i,n){
+        if(!i) i++;
+        
+        cout<<i*2<<i*2+1;
+
+    }
 
     return 0;
 }
