@@ -1,4 +1,4 @@
-// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
+// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで str[0]=toupper(str[0]);
 // g++ hoge.cpp -std=c++17 -I . でコンパイルできる
 // -fsanitize=undefinedでオーバーフロー検出
 #include <bits/stdc++.h>
@@ -6,6 +6,7 @@
 #define mod 1000000007
 #define INF LLONG_MAX
 #define ll long long
+#define endl '\n'
 #define ln cout<<endl
 #define Yes cout<<"Yes"<<endl
 #define NO cout<<"NO"<<endl
@@ -20,43 +21,25 @@ using namespace std;
 typedef pair<ll,ll> P;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-vector<ll> x;
-vector<ll> y;
-void dfs(ll num,ll curx,ll cury){
-    if(num==100) return;
-    if(curx==x[num]&&cury==y[num]) {
-        cout<<"I";
-        dfs(num+1,curx,cury);
-    }
-    else if(curx<x[num]) {
-        cout<<"R";
-        dfs(num,curx+1,cury);
-    }else if(curx>x[num]){
-        cout<<"L";
-        dfs(num,curx-1,cury);
-    }else if(cury<y[num]){
-        cout<<"D";
-        dfs(num,curx,cury+1);
-    }else if(cury>y[num]){
-        cout<<"U";
-        dfs(num,curx,cury-1);
-    }else{
-        assert(0);
-    }
-    return;
-}
 
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,k,maxi=0,f=0,mini=INF,sum=0;
+    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    n=100;
+    cin>>n;
     //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    x.resize(n);y.resize(n);
-    rep(i,n) cin>>y[i]>>x[i];
-    dfs(0,0,0);
+    vector<ll> v(n);
+    rep(i,n)   {
+        cin>>a>>b;
+        if((b-a)%2){
+            sum+=(a+b)*(b-a+1)/2;
+        }else{
+            sum+=(a+b)*(b-a+1)/2;
+        }
+    }
+    cout<<sum<<endl;
 
     return 0;
 }
