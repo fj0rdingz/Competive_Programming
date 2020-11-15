@@ -21,17 +21,6 @@ using namespace std;
 typedef pair<ll,ll> P;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-map< int64_t, int > prime_factor(int64_t n) {
-  map< int64_t, int > ret;
-  for(int64_t i = 2; i * i <= n; i++) {
-    while(n % i == 0) {
-      ret[i]++;
-      n /= i;
-    }
-  }
-  if(n != 1) ret[n] = 1;
-  return ret;
-}
 
 int main() {
     cin.tie(0);
@@ -39,24 +28,10 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;a=1;
-    map<ll,ll> mp;
-    set<ll> s;
+    cin>>n;
     //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    for(ll i=2;i<=n;i++){
-        for(auto p : prime_factor(i)) {
-           // cout<<p.first<<" "<<p.second<<endl;
-            mp[p.first]+=p.second;
-            s.insert(p.first);
-        }
-    }
+    vector<ll> v(n);
+    rep(i,n)   cin >> v[i];
 
-    for(auto itr=s.begin();itr!=s.end();++itr){
-            //cout<<*itr<<" "<<mp[*itr]<<endl;
-            a*=(mp[*itr]+1);
-            a%=mod;
-        
-    }
-    cout<<a<<endl;
     return 0;
 }
