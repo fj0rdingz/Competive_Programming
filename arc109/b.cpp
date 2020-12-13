@@ -19,32 +19,40 @@
 using namespace std;
 //using namespace atcoder;
 typedef pair<ll,ll> P;
+ll n;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-void comb(vector<vector <long long int> > &v){
-  for(int i = 0;i <v.size(); i++){
-    v[i][0]=1;
-    v[i][i]=1;
-  }
-  for(int k = 1;k <v.size();k++){
-    for(int j = 1;j<k;j++){
-      v[k][j]=(v[k-1][j-1]+v[k-1][j]);
-    }
-  }
+bool C(long double num){
+    long double sum=0;
+    sum=num*(num+1)/2;
+    return(n+1>sum);
 }
-
+bool hantei(ll num){
+    if(num==0) return true;
+    ll sum=0;
+    sum=num*(num+1)/2;
+    return(sum<=n+1);
+}
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
+    ll a,b,c,d,m,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    int N,K;
-    cin >> N;
-    N--;K=11;
-    vector<vector<long long int> > v(N+1,vector<long long int>(N+1,0));
-    comb(v);
-    cout << v[N][K]<<endl;
-    return 0;
+    cin>>n;
+    //cout<<LLONG_MAX<<endl;
+    
+    long double ub=LLONG_MAX;
+    long double lb=0;
+    for(ll i=0;i<10000;i++){
+        long double mid=(lb+ub)/2;
+        if(mid==0) continue;
+        if(C(mid)) lb=mid;
+        else ub=mid;
+    }
+    ll ans=lb;
+    if(hantei(ans+1)) ans++;
+    cout<<n+1-ans<<endl;
 
+    return 0;
 }

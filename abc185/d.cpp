@@ -21,17 +21,6 @@ using namespace std;
 typedef pair<ll,ll> P;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-void comb(vector<vector <long long int> > &v){
-  for(int i = 0;i <v.size(); i++){
-    v[i][0]=1;
-    v[i][i]=1;
-  }
-  for(int k = 1;k <v.size();k++){
-    for(int j = 1;j<k;j++){
-      v[k][j]=(v[k-1][j-1]+v[k-1][j]);
-    }
-  }
-}
 
 int main() {
     cin.tie(0);
@@ -39,12 +28,39 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    int N,K;
-    cin >> N;
-    N--;K=11;
-    vector<vector<long long int> > v(N+1,vector<long long int>(N+1,0));
-    comb(v);
-    cout << v[N][K]<<endl;
-    return 0;
+    cin>>n>>m;
 
+    vector<ll> v(m);
+    rep(i,m)   cin >> v[i];
+    if(m==0){
+        cout<<1<<endl;
+        return 0;
+    }
+    if(n==m){
+        cout<<0<<endl;
+        return 0;
+    }
+    sort(all(v));
+    vector<ll> w(m+1);
+    rep(i,m-1) w[i]=v[i+1]-v[i]-1;
+    w[m-1]=v[0]-1;
+    w[m]=n-v[m-1];
+    sort(all(w));
+    ll size;
+    rep(i,m+1){
+        if(w[i]<0) w[i]= 0;
+        if(w[i]>0) {
+            size=w[i];
+            break;
+        }
+    }
+   // cout<<size<<endl;
+    rep(i,m+1){
+        sum+=w[i]/size;
+        if(w[i]%size) sum++;
+    }
+    cout<<sum<<endl;
+
+
+    return 0;
 }

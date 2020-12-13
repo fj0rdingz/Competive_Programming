@@ -21,30 +21,31 @@ using namespace std;
 typedef pair<ll,ll> P;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-void comb(vector<vector <long long int> > &v){
-  for(int i = 0;i <v.size(); i++){
-    v[i][0]=1;
-    v[i][i]=1;
-  }
-  for(int k = 1;k <v.size();k++){
-    for(int j = 1;j<k;j++){
-      v[k][j]=(v[k-1][j-1]+v[k-1][j]);
-    }
-  }
-}
 
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
+    ll c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    int N,K;
-    cin >> N;
-    N--;K=11;
-    vector<vector<long long int> > v(N+1,vector<long long int>(N+1,0));
-    comb(v);
-    cout << v[N][K]<<endl;
+    ll t;
+    cin>>n>>m>>t;
+    maxi=n;
+    ll a[m];
+    ll b[m];
+    rep(i,m) cin>>a[i]>>b[i];
+    n-=a[0];
+    if(n<=0) f=1;
+    n=min(n+b[0]-a[0],maxi);
+    for(ll i=1;i<m;i++){
+        n-=a[i]-b[i-1];
+        if(n<=0) f=1;
+        n=min(n+b[i]-a[i],maxi);
+        //cout<<i<<" "<<n<<endl;
+    }
+    n-=t-b[m-1];
+    if(n<=0) f=1;
+    if(f) No;
+    else Yes;
     return 0;
-
 }
