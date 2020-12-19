@@ -28,10 +28,10 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>a>>b>>c;
-    sum+=b;
-    sum+=min(a+b,c);
-    if(a+b<c) sum++;
-    cout<<sum<<endl;
+    cin>>n;
+    //vector<vector<ll>> v(tate,vector<ll> (yoko));
+    vector<ll> v(n);
+    rep(i,n)   cin >> v[i];
+
     return 0;
 }

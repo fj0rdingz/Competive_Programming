@@ -28,10 +28,13 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>a>>b>>c;
-    sum+=b;
-    sum+=min(a+b,c);
-    if(a+b<c) sum++;
-    cout<<sum<<endl;
+    ll t;
+    cin>>t;
+    rep(_,t){
+        ll s;
+        cin>>n>>s>>k;
+
+    }
+
     return 0;
 }

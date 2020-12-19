@@ -28,10 +28,31 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>a>>b>>c;
-    sum+=b;
-    sum+=min(a+b,c);
-    if(a+b<c) sum++;
-    cout<<sum<<endl;
+    cin>>n;
+    rep(i,n+1){
+        if(i==0) continue;
+        b=i;
+        f=0;
+        while(b>0){
+            if(b%10==7) {
+                f=1;
+                break;
+            }
+            b/=10;
+        }
+        b=i;
+        if(!f){
+            while(b>0){
+                if(b%8==7) {
+                    f=1;
+                    break;
+                }
+                b/=8;
+            }
+        }
+        if(f) sum++;
+    }
+    cout<<n-sum<<endl;
+
     return 0;
 }

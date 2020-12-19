@@ -27,11 +27,13 @@ int main() {
    	ios::sync_with_stdio(false);
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
-    string str;
-    cin>>a>>b>>c;
-    sum+=b;
-    sum+=min(a+b,c);
-    if(a+b<c) sum++;
+    string str;ll h,w;
+    cin>>h>>w;
+    vector<vector<ll>> v(h,vector<ll> (w));
+    rep(i,h)rep(j,w) cin>>v[i][j];
+    rep(i,h)rep(j,w) mini=min(mini,v[i][j]);
+    rep(i,h)rep(j,w) sum+=v[i][j]-mini;
     cout<<sum<<endl;
+
     return 0;
 }
