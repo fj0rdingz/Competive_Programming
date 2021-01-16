@@ -1,9 +1,12 @@
-// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
-
+// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで str[0]=toupper(str[0]);
+// g++ hoge.cpp -std=c++17 -I . でコンパイルできる
+// -fsanitize=undefinedでオーバーフロー検出
 #include <bits/stdc++.h>
+//#include <atcoder/all>
 #define mod 1000000007
 #define INF LLONG_MAX
 #define ll long long
+#define endl '\n'
 #define ln cout<<endl
 #define Yes cout<<"Yes"<<endl
 #define NO cout<<"NO"<<endl
@@ -14,6 +17,8 @@
 #define all(x) (x).begin(),(x).end()
 #define rall(x) (x).rbegin(),(x).rend()
 using namespace std;
+//using namespace atcoder;
+typedef pair<ll,ll> P;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
 
@@ -21,23 +26,12 @@ int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
+    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    ll x,k;
-    cin>>x>>k>>d;
-    x=abs(x);
-    if(x-k*d<=0) {
-        k-=x/d;
-        if(k%2==0){
-        cout<<min(abs(x%d),abs(x%d+2*d));
-        }else{
-            cout<<min(abs(x%d+d),abs(x%d-d))<<endl;
-        }
-    }
-    else{
-        cout<<x-k*d<<endl;
-    }
-    
+    cin>>n;
+    //vector<vector<ll>> v(tate,vector<ll> (yoko));
+    vector<ll> v(n);
+    rep(i,n)   cin >> v[i];
 
     return 0;
 }
