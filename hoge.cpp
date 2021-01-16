@@ -1,11 +1,12 @@
-// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
+// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで str[0]=toupper(str[0]);
 // g++ hoge.cpp -std=c++17 -I . でコンパイルできる
 // -fsanitize=undefinedでオーバーフロー検出
 #include <bits/stdc++.h>
 //#include <atcoder/all>
 #define mod 1000000007
 #define INF LLONG_MAX
-#define ll int
+#define ll long long
+#define endl '\n'
 #define ln cout<<endl
 #define Yes cout<<"Yes"<<endl
 #define NO cout<<"NO"<<endl
@@ -20,29 +21,23 @@ using namespace std;
 typedef pair<ll,ll> P;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
- 
-int op(ll a, ll b) { return a+b; }
- 
-int e() { return 0; }
- 
+
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
- 
-    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,sum=0;
+
+    ll d,m,n,k,x,y,k,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    int hoge=0;
-    cin>>n;
+    cin>>n>>k;
+    vector<vector<ll>> dp(n+1,vector<ll> (k+1));
     vector<ll> v(n);
-    rep(i,n) cin>>v[i];
-    sort(all(v));
-    ll lastsa=0;
-    rep(i,n-1){
-        sum+=lastsa;
-        sum+=(v[i+1]-v[i])*(i+1);
-        lastsa+=v[i+1]-v[i];
+    vector<ll> w(n);
+    rep(i,n)   cin >> w[i]>>v[i];
+    rep(i,n){
+        if(dp[i])
+        dp[i+1][k]
     }
-    cout<<sum<<endl;
- 
+    cout<<max(dp[n][0],max(dp[n][1],dp[n][2]))<<endl;
+
     return 0;
 }
