@@ -42,13 +42,6 @@ long long nCk(int n, int k) {
     }
     return ans * fact_inv[k] % mod;
 }
-
-//べき剰余
-ll powMod(ll x, ll k) {
-  if (k == 0)     return 1;
-  if (k % 2 == 0) return powMod(x*x % mod, k/2);
-  else            return x*powMod(x, k-1) % mod;
-}
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
@@ -56,16 +49,20 @@ int main() {
     ll m,n,maxi=0,mini=INF,sum=0;
     //string str;
     
-    ll a,b;
-    cin>>n>>a>>b;
-    init_nCk(2*10e5);
-    ll ans=powMod(2,n);
-    ans--;
-    ans-=nCk(n,a);
-    ans-=nCk(n,b);
-    while(ans<0){
-        ans+=mod;
+    ll x,y,t;
+    cin>>x>>y;
+    if((x+y)%3) {
+        cout<<0<<endl;
+        return 0;
     }
-    cout<<ans<<endl;
+    ll a=(x+y)/3;
+    x-=a;
+    y-=a;
+    if(x<0||y<0){
+        cout<<0<<endl;
+        return 0;
+    }
+    init_nCk(x+y);
+    cout<<nCk(x+y,x)<<endl;
     return 0;
 }
