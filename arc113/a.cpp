@@ -29,9 +29,16 @@ int main() {
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
     cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
-
+    for(ll i=1;i<=n;i++){
+        for(ll j=1;j*i<=n;j++){
+            for(ll k=1;k*j*i<=n;k++){
+              //  cout<<i<<" "<<j<<" "<<k<<endl;
+                if(i*j*k<=n){
+                    sum++;
+                }
+            }
+        }
+    }
+    cout<<sum<<endl;
     return 0;
 }

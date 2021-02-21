@@ -28,10 +28,23 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
-
+    cin>>str;
+    reverse(str.begin(),str.end());
+    ll fixed = -1;
+    char last='A';
+    rep(i,str.length()-2){
+        if(str[i]!=str[i+1]&&str[i+1]==str[i+2]){
+            if(last!=str[i+1]) sum+=i+1;
+            else sum+=i-fixed;
+            for(ll j=fixed+1;j<=i;j++){
+           //     cout<<i+1<<" "<<j<<" "<<sum<<endl;
+                if(str[j]==str[i+1]) sum--;
+            }
+            last=str[i+1];
+            //cout<<sum<<" fixed:"<<fixed+1<<" to i:"<<i<<endl;
+            fixed=i;
+        }
+    }
+    cout<<sum<<endl;
     return 0;
 }

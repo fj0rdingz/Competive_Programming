@@ -21,17 +21,35 @@ using namespace std;
 typedef pair<ll,ll> P;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-
+long long powMod(long long x, long long k, long long m) {
+  if (k == 0)     return 1;
+  if (k % 2 == 0) return powMod(x*x % m, k/2, m);
+  else            return x*powMod(x, k-1, m) % m;
+}
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    cin>>a>>b>>c;
+    a=a%10;
+    ll cur=a;
+    map<ll,ll> mp;
+    vector<ll> v(1);
+    v[0]=a;
+    while(1){
+        cur=cur*a;
+        cur%=10;
+        if(find(all(v),cur)!=v.end()) break;
+        v.push_back(cur);
+    }
+    //rep(i,v.size()) cout<<v[i]<<" ";
+  //  ln;
+    d=powMod(b,c,v.size());
+   // cout<<d<<endl;
+    if(d-1==-1)cout<<v[v.size()-1]<<endl;
+    else cout<<v[d-1]<<endl;
 
     return 0;
 }
