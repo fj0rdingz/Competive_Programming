@@ -19,6 +19,7 @@
 using namespace std;
 //using namespace atcoder;
 typedef pair<ll,ll> P;
+typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
 
