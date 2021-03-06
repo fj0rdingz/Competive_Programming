@@ -1,6 +1,6 @@
 //
 #include <bits/stdc++.h>
-#define mod 1000000007
+#define mod LLONG_MAX
 #define INF LLONG_MAX
 #define ll long long
 #define ln cout<<endl
