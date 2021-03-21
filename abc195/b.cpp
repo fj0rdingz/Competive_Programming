@@ -29,10 +29,23 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    cin>>a>>b>>c;
+
+    c*=1000;
+    ll chk[1000001];
+    rep(i,1000001){
+        if(a*i<=c&&c<=b*i) f=1;
+    }
+    if(f==0){
+        cout<<"UNSATISFIABLE"<<endl;
+        return 0;
+    }
+
+    f=0;
+    d=c/a;
+    f=c/b;
+    if(c%b) f++;
+    cout<<f<<" "<<d<<endl;
 
     return 0;
 }

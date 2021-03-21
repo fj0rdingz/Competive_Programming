@@ -30,9 +30,20 @@ int main() {
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
     cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    ll j;
+    rep(i,1000000){
+        if(i==0) continue;
+        if(i<10) j=1;
+        else if(i<100) j=2;
+        else if(i<1000) j=3;
+        else if(i<10000) j=4;
+        else if(i<100000) j=5;
+        else if(i<1000000) j=6;
+        //if(i<20)cout<<i<<" "<<i*(pow(10,j)+1)<<endl;
+        if(n>=i*(pow(10,j)+1)) sum++;
+        
+    }
+    cout<<sum<<endl;
 
     return 0;
 }

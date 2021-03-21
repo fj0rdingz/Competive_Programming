@@ -6,7 +6,6 @@
 #define mod 1000000007
 #define INF LLONG_MAX
 #define ll long long
-#define endl '\n'
 #define ln cout<<endl
 #define Yes cout<<"Yes"<<endl
 #define NO cout<<"NO"<<endl
@@ -19,7 +18,6 @@
 using namespace std;
 //using namespace atcoder;
 typedef pair<ll,ll> P;
-typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
 
@@ -29,10 +27,8 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    cin>>a>>b>>c>>d;
+    cout<<max(a,b)-min(c,d)<<endl;;
 
     return 0;
 }

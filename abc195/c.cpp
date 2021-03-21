@@ -30,9 +30,14 @@ int main() {
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
     cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
+    if(n>999)sum+=n-999;
+    if(n>999999)sum+=n-999999;
+    if(n>999999999)sum+=n-999999999;
+    if(n>999999999999) sum+=n-999999999999;
+    if(n>999999999999999) sum+=n-999999999999999;
+    
+    cout<<sum<<endl;
+    
 
     return 0;
 }
