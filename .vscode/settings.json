@@ -1,5 +1,16 @@
 {
     "files.autoSave": "afterDelay",
     "files.eol": "\n",
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe"
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
+    "files.associations": {
+        "ostream": "cpp",
+        "cmath": "cpp",
+        "iostream": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "string_view": "cpp"
+    }
     }

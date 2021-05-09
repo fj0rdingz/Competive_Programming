@@ -6,7 +6,6 @@
 #define mod 1000000007
 #define INF LLONG_MAX
 #define ll long long
-#define double long double
 #define endl '\n'
 #define ln cout<<endl
 #define Yes cout<<"Yes"<<endl
@@ -23,25 +22,49 @@ typedef pair<ll,ll> P;
 typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-double getRadian(double x, double y, double x2, double y2) {
-    double radian = atan2(y2 - y,x2 - x);
-    return radian;
-}
+
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,k,maxi=0,f=0,mini=INF,sum=0;
+    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n>>a>>b>>c;
-    REP(i,0,10000){
-        REP(j,0,10000-i){
-            d=n-a*i-b*j;
-            if(d<0) continue;
-            if(d%c) continue;
-            mini=min(i+j+d/c,mini);
-        }
+    cin>>n;
+    n-=3;
+    cout<<"10 15 6 ";
+    ll i=2;
+    set<ll> s;
+    s.insert(10);
+    s.insert(15);
+    s.insert(6);
+    while(n){
+        if(6*i>10000) break;
+        cout<<6*i<<" ";
+        s.insert(6*i);
+        i++;
+        n--;
     }
-    cout<<mini<<endl;
+    i=2;
+    while(n){
+        if(10*i>10000) break;
+        if(s.find(10*i)==s.end()){
+            cout<<10*i<<" ";
+            s.insert(10*i);
+            n--;
+        }
+    i++;
+    }
+    i=2;
+    while(n){
+        if(15*i>10000) break;
+        if(s.find(15*i)==s.end()){
+            cout<<15*i<<" ";
+            s.insert(15*i);
+            n--;
+        }
+    i++;
+    }
+    ln;
+
     return 0;
 }

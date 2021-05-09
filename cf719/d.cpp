@@ -1,4 +1,4 @@
-// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで str[0]=toupper(str[0]);
+// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
 // g++ hoge.cpp -std=c++17 -I . でコンパイルできる
 // -fsanitize=undefinedでオーバーフロー検出
 #include <bits/stdc++.h>
@@ -6,8 +6,6 @@
 #define mod 1000000007
 #define INF LLONG_MAX
 #define ll long long
-#define double long double
-#define endl '\n'
 #define ln cout<<endl
 #define Yes cout<<"Yes"<<endl
 #define NO cout<<"NO"<<endl
@@ -20,28 +18,34 @@
 using namespace std;
 //using namespace atcoder;
 typedef pair<ll,ll> P;
-typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-double getRadian(double x, double y, double x2, double y2) {
-    double radian = atan2(y2 - y,x2 - x);
-    return radian;
-}
+
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,k,maxi=0,f=0,mini=INF,sum=0;
+    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0,loop;
     string str;
-    cin>>n>>a>>b>>c;
-    REP(i,0,10000){
-        REP(j,0,10000-i){
-            d=n-a*i-b*j;
-            if(d<0) continue;
-            if(d%c) continue;
-            mini=min(i+j+d/c,mini);
+    cin>>loop;
+    rep(_,loop){
+        sum=0;
+        cin>>n;
+        vector<ll> v(n);
+        map<ll,ll> count;
+        rep(i,n)   cin >> v[i];
+        rep(i,n){
+            v[i]-=(i+1);
+            count[v[i]]++;
         }
+        for(ll i=-n;i<n;i++){
+            if(count[i]!=0&&count[i]!=1){
+                sum+=count[i]*(count[i]-1)/2;
+            }
+        }
+        cout<<sum<<endl;
     }
-    cout<<mini<<endl;
+
+
     return 0;
 }
