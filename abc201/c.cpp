@@ -1,4 +1,4 @@
-// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
+// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで str[0]=toupper(str[0]);
 // g++ hoge.cpp -std=c++17 -I . でコンパイルできる
 // -fsanitize=undefinedでオーバーフロー検出
 #include <bits/stdc++.h>
@@ -6,6 +6,7 @@
 #define mod 1000000007
 #define INF LLONG_MAX
 #define ll long long
+#define endl '\n'
 #define ln cout<<endl
 #define Yes cout<<"Yes"<<endl
 #define NO cout<<"NO"<<endl
@@ -18,6 +19,7 @@
 using namespace std;
 //using namespace atcoder;
 typedef pair<ll,ll> P;
+typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
 
@@ -27,27 +29,25 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    ll q;
-    cin>>n>>q;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
-    ll shift=0;
-    rep(_,q){
-        ll t;
-        cin>>t>>a>>b;
-        if(t==1){
-            swap(v[(a-1+shift)%n],v[(b-1+shift)%n]);
-        }else if(t==2){
-            shift++;
-            shift%=n;
-        }else{
-        if(a-1+shift>n)         cout<<v[(a-1+shift)%n]<<endl;
-        else cout<<v[a-1+shift]<<endl;
-            
+    cin>>str;
+
+    for(ll i= 10000;i<=19999;i++){
+        f=0;
+        bool check[10];
+            rep(j,10){
+                check[j]=false;
+            }
+        check[(i-10000)/1000]=true;
+        check[(i-10000)%1000/100]=true;
+        check[(i-10000)%100/10]=true;
+        check[(i-10000)%10]=true;
+        rep(j,10){
+            if(str[j]=='o'&&check[j]==false) f=1;
+            if(str[j]=='x'&&check[j]==true) f=1;
         }
+        if(f==0) sum++;
     }
+    cout<<sum<<endl;
 
     return 0;
 }
-
