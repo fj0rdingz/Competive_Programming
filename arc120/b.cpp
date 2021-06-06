@@ -29,10 +29,13 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
-
+    cin>>n>>k;
+    n++;k++;
+    for(ll i=100;i<=n*100;i+=100){
+        for(ll j=1;j<=k;j++){
+            sum+=i+j;
+        }
+    }
+    cout<<sum<<endl;
     return 0;
 }

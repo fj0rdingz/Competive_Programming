@@ -21,6 +21,61 @@ typedef pair<ll,ll> P;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
 
+class mint {
+    long long x;
+public:
+    mint(long long x=0) : x((x%mod+mod)%mod) {}
+    mint operator-() const { 
+      return mint(-x);
+    }
+    mint& operator+=(const mint& a) {
+        if ((x += a.x) >= mod) x -= mod;
+        return *this;
+    }
+    mint& operator-=(const mint& a) {
+        if ((x += mod-a.x) >= mod) x -= mod;
+        return *this;
+    }
+    mint& operator*=(const  mint& a) {
+        (x *= a.x) %= mod;
+        return *this;
+    }
+    mint operator+(const mint& a) const {
+        mint res(*this);
+        return res+=a;
+    }
+    mint operator-(const mint& a) const {
+        mint res(*this);
+        return res-=a;
+    }
+    mint operator*(const mint& a) const {
+        mint res(*this);
+        return res*=a;
+    }
+    mint pow(ll t) const {
+        if (!t) return 1;
+        mint a = pow(t>>1);
+        a *= a;
+        if (t&1) a *= *this;
+        return a;
+    }
+    // for prime mod
+    mint inv() const {
+        return pow(mod-2);
+    }
+    mint& operator/=(const mint& a) {
+        return (*this) *= a.inv();
+    }
+    mint operator/(const mint& a) const {
+        mint res(*this);
+        return res/=a;
+    }
+
+    friend ostream& operator<<(ostream& os, const mint& m){
+        os << m.x;
+        return os;
+    }
+};
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
@@ -28,25 +83,23 @@ int main() {
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
     ll q;
-    cin>>n>>q;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
+    cin>>n>>k;
     vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
-    ll shift=0;
-    rep(_,q){
-        ll t;
-        cin>>t>>a>>b;
-        if(t==1){
-            swap(v[(a-1+shift)%n],v[(b-1+shift)%n]);
-        }else if(t==2){
-            shift++;
-            shift%=n;
-        }else{
-        if(a-1+shift>n)         cout<<v[(a-1+shift)%n]<<endl;
-        else cout<<v[a-1+shift]<<endl;
-            
+    set<ll> s;
+    map<ll,ll> maxr;
+    rep(i,n) cin>>v[i];
+    ll l=0;
+    rep(i,n){
+        maxr[v[i]]=i;
+        s.insert(v[i]);
+        //cout<<i<<" "<<s.size()<<endl;
+        if(s.size()>k){
+            s.erase(v[l]);
+            l=maxr[v[l]]+1;
         }
+        maxi=max(maxi,i-l+1);
     }
+    cout<<maxi<<endl;
 
     return 0;
 }

@@ -30,20 +30,36 @@ int main() {
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
     cin>>n;
+    //vector<vector<ll>> v(tate,vector<ll> (yoko));
     vector<ll> v(n);
-    vector<ll> curmax(n);
-    rep(i,n) cin>>v[i];
-    curmax[0]=v[0];
-    rep(i,n-1) curmax[i+1]=max(curmax[i],v[i+1]);
-    ll cursum=0;
-    rep(i,n){
-        v[i]+=max(curmax[i],v[i]);
-        cout<<"v[i]: "<<v[i]<<endl;
-        if(i!=n-1) curmax[i+1]=max(curmax[i+1],v[i]);
-        if(curmax[i+1]<v[i]) cursum+=(v[i]-curmax[i+1])*(i-1);
-        cursum+=v[i];
-        cout<<cursum<<endl;
+    rep(i,n)   cin >> v[i];
+    rep(i,n) sum+=v[i];
+    ll l=0,r=sum;
+    ll dp[n+1][sum+5];
+    rep(i,n+1)rep(j,sum+5) dp[i][j]=0;
+    dp[0][0]=1;
+    REP(i,1,n+1){
+        rep(j,sum+5){
+            if(dp[i-1][j]){
+                dp[i][j]=1;
+                if(j+v[i-1]<=sum) dp[i][j+v[i-1]]=1;
+            }
+        }
+    }/*
+    REP(i,0,n+1){
+        rep(j,sum+5){
+            cout<<dp[i][j]<<" ";
+        }ln;
+    }*/
+    mini=INF;
+    rep(i,sum+1){
+        if(dp[n][i]){
+         //   cout<<i<<" "<<sum-i<<" "<<mini<<endl;
+            mini=min(max(i,sum-i),mini);
+        }
     }
+    cout<<mini<<endl;
+
 
     return 0;
 }

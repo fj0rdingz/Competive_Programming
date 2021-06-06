@@ -22,28 +22,46 @@ typedef pair<ll,ll> P;
 typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-
+bool comp(pair<ll, ll> a, pair<ll , ll> b) {
+    // 基本はfirstで比較
+    if(a.first != b.first){
+         return a.first < b.first; // 昇順
+        //return a.first > b.first; // 降順
+    }
+}
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    vector<ll> v(n);
-    vector<ll> curmax(n);
-    rep(i,n) cin>>v[i];
-    curmax[0]=v[0];
-    rep(i,n-1) curmax[i+1]=max(curmax[i],v[i+1]);
-    ll cursum=0;
+    cin>>n>>k;
+    set<ll> s;
+    map<ll,ll> mp;
     rep(i,n){
-        v[i]+=max(curmax[i],v[i]);
-        cout<<"v[i]: "<<v[i]<<endl;
-        if(i!=n-1) curmax[i+1]=max(curmax[i+1],v[i]);
-        if(curmax[i+1]<v[i]) cursum+=(v[i]-curmax[i+1])*(i-1);
-        cursum+=v[i];
-        cout<<cursum<<endl;
+        cin>>a>>b;
+        mp[a]+=b;
+        s.insert(a);
     }
+    vector<P> p(s.size());
+    ll i=0;
+    for(auto itr=s.begin();itr!=s.end();++itr){
+        p[i]=P(*itr,mp[*itr]);
+        i++;
+    }
+    sort(all(p),comp);
+    ll money=k;
+    ll num=0;
+    rep(i,s.size()){
+        if(money<p[i].first){
+            cout<<money<<endl;
+            return 0;
+        }else{
+            money+=p[i].second;
+            num+=p[i].first;
+        }
+    }
+    cout<<money<<endl;
 
     return 0;
 }

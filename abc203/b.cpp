@@ -29,21 +29,14 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    vector<ll> v(n);
-    vector<ll> curmax(n);
-    rep(i,n) cin>>v[i];
-    curmax[0]=v[0];
-    rep(i,n-1) curmax[i+1]=max(curmax[i],v[i+1]);
-    ll cursum=0;
-    rep(i,n){
-        v[i]+=max(curmax[i],v[i]);
-        cout<<"v[i]: "<<v[i]<<endl;
-        if(i!=n-1) curmax[i+1]=max(curmax[i+1],v[i]);
-        if(curmax[i+1]<v[i]) cursum+=(v[i]-curmax[i+1])*(i-1);
-        cursum+=v[i];
-        cout<<cursum<<endl;
+    cin>>n>>k;
+    //n++;k++;
+    for(ll i=100;i<=n*100;i+=100){
+        for(ll j=1;j<=k;j++){
+            sum+=i+j;
+            //cout<<i<<" "<<j<<endl;
+        }
     }
-
+    cout<<sum<<endl;
     return 0;
 }
