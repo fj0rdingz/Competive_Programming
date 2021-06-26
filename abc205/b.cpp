@@ -33,30 +33,12 @@ int main() {
     //vector<vector<ll>> v(tate,vector<ll> (yoko));
     vector<ll> v(n);
     rep(i,n)   cin >> v[i];
-    rep(i,n) v[i]*=10;
-      sum=accumulate(all(v),0LL);
-    v.resize(n*2);
-    for(ll i=n;i<n*2;i++){
-      v[i]=v[i-n];
+    sort(all(v));
+    REP(i,1,n+1){
+        if(v[i-1]!=i) f=1;
     }
-    ll t=sum/10;
-    sum=0;
-    ll r=0;
-    ll l=0;
-    while(l!=n*2-1){
-      if(t==sum){
-        Yes;
-        return 0;
-      }
-      if(t>sum&&r!=n*2-1){
-        r++;
-        sum+=v[r];
-      }else{
-        l++;
-        sum-=v[l];
-      }
-     // cout<<l<<" "<<r<<" "<<sum<<endl;
-    }
-    No;
+    if(f) No;
+    else Yes;
+
     return 0;
 }

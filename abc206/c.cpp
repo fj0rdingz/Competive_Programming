@@ -31,32 +31,15 @@ int main() {
     string str;
     cin>>n;
     //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
-    rep(i,n) v[i]*=10;
-      sum=accumulate(all(v),0LL);
-    v.resize(n*2);
-    for(ll i=n;i<n*2;i++){
-      v[i]=v[i-n];
+    multiset<ll> s;
+    map<ll,ll> mp;
+    rep(i,n)  {
+        cin>>a;
+        s.insert(a);
     }
-    ll t=sum/10;
-    sum=0;
-    ll r=0;
-    ll l=0;
-    while(l!=n*2-1){
-      if(t==sum){
-        Yes;
-        return 0;
-      }
-      if(t>sum&&r!=n*2-1){
-        r++;
-        sum+=v[r];
-      }else{
-        l++;
-        sum-=v[l];
-      }
-     // cout<<l<<" "<<r<<" "<<sum<<endl;
+    for(auto itr=s.begin();itr!=s.end();++itr){
+        sum+=(n-(s.count(*itr)));
     }
-    No;
+    cout<<sum/2<<endl;
     return 0;
 }

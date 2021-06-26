@@ -27,36 +27,22 @@ int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
+    ll  a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
-    rep(i,n) v[i]*=10;
-      sum=accumulate(all(v),0LL);
-    v.resize(n*2);
-    for(ll i=n;i<n*2;i++){
-      v[i]=v[i-n];
+    cin>>a>>b>>c;
+    c%=2;
+    if(c==0) c=2;
+    if(c==2){
+        a*=a;
+        b*=b;
     }
-    ll t=sum/10;
-    sum=0;
-    ll r=0;
-    ll l=0;
-    while(l!=n*2-1){
-      if(t==sum){
-        Yes;
-        return 0;
-      }
-      if(t>sum&&r!=n*2-1){
-        r++;
-        sum+=v[r];
-      }else{
-        l++;
-        sum-=v[l];
-      }
-     // cout<<l<<" "<<r<<" "<<sum<<endl;
+    if(a==b){
+        cout<<'='<<endl;
+    }else if(a>b){
+        cout<<'>'<<endl;
+    }else{
+        cout<<'<'<<endl;
     }
-    No;
+
     return 0;
 }

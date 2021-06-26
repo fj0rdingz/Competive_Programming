@@ -1,3 +1,6 @@
+//https://atcoder.jp/contests/abc207/tasks/abc207_c
+//閉区間交差判定
+
 // lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで str[0]=toupper(str[0]);
 // g++ hoge.cpp -std=c++17 -I . でコンパイルできる
 // -fsanitize=undefinedでオーバーフロー検出
@@ -30,33 +33,32 @@ int main() {
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
     cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> v(n);
-    rep(i,n)   cin >> v[i];
-    rep(i,n) v[i]*=10;
-      sum=accumulate(all(v),0LL);
-    v.resize(n*2);
-    for(ll i=n;i<n*2;i++){
-      v[i]=v[i-n];
+    vector<long double> l(n);
+    vector<long double> r(n);
+    
+    rep(i,n){
+        cin>>a>>b>>c;
+        if(a==1){
+            l[i]=b;
+            r[i]=c;
+        }else if(a==2){
+            l[i]=b;
+            r[i]=c-0.1;
+        }else if(a==3){
+            l[i]=b+0.1;
+            r[i]=c;
+        }else if(a==4){
+            l[i]=b+0.1;
+            r[i]=c-0.1;
+        }
+        //cout<<l[i]<<" "<<r[i]<<endl;
     }
-    ll t=sum/10;
-    sum=0;
-    ll r=0;
-    ll l=0;
-    while(l!=n*2-1){
-      if(t==sum){
-        Yes;
-        return 0;
-      }
-      if(t>sum&&r!=n*2-1){
-        r++;
-        sum+=v[r];
-      }else{
-        l++;
-        sum-=v[l];
-      }
-     // cout<<l<<" "<<r<<" "<<sum<<endl;
+
+    rep(i,n-1){
+        for(ll j=i+1;j<n;j++){
+            if(min(r[i],r[j])>=max(l[i],l[j])) sum++;
+        }
     }
-    No;
+    cout<<sum<<endl;
     return 0;
 }
