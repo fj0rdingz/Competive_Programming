@@ -58,7 +58,6 @@ int main() {
                 q.push(P(d[e.to],e.to));
             }
         }
-
     }
     rep(i,V) {
         if(d[i]==INF) cout<<"INF"<<endl;

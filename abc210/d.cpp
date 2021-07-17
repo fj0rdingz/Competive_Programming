@@ -36,12 +36,12 @@ int main() {
     mcf_graph<ll,ll> g(h*w+2);
     rep(i,h){
         rep(j,w){
-        if(!(i+j)%2)g.add_edge(h*w,i*h+j,1,v[i][j]);
+        g.add_edge(n,i*h+j,1,v[i][j]);
         }
     }
     rep(i,h){
         rep(j,w){
-        if((i+j)%2)g.add_edge(i*h+j,h*w+1,1,v[i][j]);
+        g.add_edge(i*h+j,n+1,1,v[i][j]);
         }
     }
     rep(i,h-1){
@@ -56,7 +56,7 @@ int main() {
             g.add_edge(i*h+j+1,i*h+j,1,c);
         }
     }
-    pair<ll,ll> p=g.flow(h*w,h*w+1,1);
+    pair<ll,ll> p=g.flow(n,n+1,1);
     cout<<p.second<<endl;
 
 
