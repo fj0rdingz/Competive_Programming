@@ -1,1 +1,6 @@
-/unity/
+build
+
+*.html
+!tools/*.html
+tools/ac-library.zip
+__pycache__
