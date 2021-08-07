@@ -29,15 +29,20 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>a>>b>>c;
-    //a<c
-    if(a>c){
-        swap(a,c);
-    }
-    if(abs(a-c)%2){
-        cout<<min(abs(a+c+1-b*2),abs(a+c-1-b*2))<<endl;
+    cin>>str;
+    vector<ll> v(4);
+    v[0]=str[0]-'0';
+    v[1]=str[1]-'0';
+    v[2]=str[2]-'0';
+    v[3]=str[3]-'0';
+
+    if(v[0]==v[1]&&v[1]==v[2]&&v[2]==v[3]){
+cout<<"Weak"<<endl;
+    }else if((v[0]+1==v[1]||v[0]==9&&v[1]==0)&&(v[1]+1==v[2]||v[1]==9&&v[2]==0)&&(v[2]+1==v[3]||v[2]==9&&v[3]==0)){
+cout<<"Weak"<<endl;
     }else{
-        cout<<abs(a+c-b*2)/2<<endl;
+cout<<"Strong"<<endl;
+
     }
 
     return 0;

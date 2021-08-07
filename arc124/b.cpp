@@ -22,29 +22,30 @@ typedef pair<ll,ll> P;
 typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-ll solve(ll l,ll r,ll num){
-    return(((l+r))%mod*((r-l+1)%mod)*num/2%mod);
-}
+
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    ll l,r;
-    cin>>l>>r;
-    ll ans=0;
-    ll i=1;
-    for(ll num=1;num<=18;num++){
-        if(min(r,i*10-1)>=max(l,i)) ans+=solve(max(i,l),min(r,i*10-1),num);
-        ans%=mod;
-       // cout<<solve(max(i,l),min(r,i*10),num)<<endl;
-        i*=10;
+    cin>>n;
+    //vector<vector<ll>> v(tate,vector<ll> (yoko));
+    vector<ll> v(n);
+    vector<ll> w(n);
+    rep(i,n)   cin >> v[i];
+    rep(i,n)   cin >> w[i];
+    sort(all(v));
+    sort(all(w));
+    ll wxo=0;
+    ll vxo=0;
+    rep(i,n){
+        cout<<w[i]<<" "<<wxo<<" "<<endl;
+        vxo=vxo^v[i];
+        wxo=wxo^w[i];
     }
-    if(r==10e18) ans+=18;
-    ans%=mod;
-    cout<<ans<<endl;
-
+    cout<<bitset<30>(vxo)<<endl;
+    cout<<bitset<30>(wxo)<<endl;
 
     return 0;
 }

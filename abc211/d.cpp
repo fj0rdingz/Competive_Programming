@@ -34,36 +34,48 @@ int main() {
     ll V,r;
 
     // Vがノード数aがedge数rが始点
-    cin>>V>>a>>r;
+    cin>>V>>a;
+    r=0;
     vector<Edge> Es[V];
     ll d[V];
+    ll num[V];
     priority_queue<P,vector<P>,greater<P>> q;
     rep(i,a)   {
-        // 無向グラフなら辺を逆向きにも張る 
-        // 0-indexedで作ってあるので1-indexedの場合は1引く
         Edge e;
-        cin>>b>>e.to>>e.d;
+        cin>>b>>e.to;
+        b--;
+        e.to--;
+        e.d=1;
+        Es[b].push_back(e);
+        c=b;
+        b=e.to;
+        e.to=c;
         Es[b].push_back(e);
     }
     rep(i,V) d[i]=INF;
+    rep(i,V) num[i]=0;
+    num[0]=1;
     d[r]=0;
     q.push(P(0,r));
     while(!q.empty()){
         P p=q.top();
         q.pop();
-        ll from=p.second;
-        if(d[from]<p.first) continue;
-        rep(i,Es[from].size()){
-            Edge e=Es[from][i];
-            if(d[from]+e.d<d[e.to]) {
-                d[e.to]=d[from]+e.d;
+        ll v=p.second;
+        if(d[p.second]<p.first) continue;
+        rep(i,Es[v].size()){
+            Edge e=Es[v][i];
+            if(d[e.to]>d[v]+e.d) {
+                d[e.to]=d[v]+e.d;
                 q.push(P(d[e.to],e.to));
+                num[e.to]=num[v];
+            }else if(d[e.to]==d[v]+e.d){
+                num[e.to]+=num[v];
+                num[e.to]%=mod;
+                //cout<<num[e.to]<<" "<<d[v]<<endl;
             }
         }
     }
-    rep(i,V) {
-        if(d[i]==INF) cout<<"INF"<<endl;
-        else cout<<d[i]<<endl;
-    }
+
+    cout<<num[V-1]<<endl;
     return 0;
 }
