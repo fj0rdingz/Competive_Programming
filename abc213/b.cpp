@@ -2,7 +2,7 @@
 // g++ hoge.cpp -std=c++17 -I . でコンパイルできる
 // -fsanitize=undefinedでオーバーフロー検出
 #include <bits/stdc++.h>
-#include <atcoder/all>
+//#include <atcoder/all>
 #define mod 1000000007
 #define INF LLONG_MAX
 #define ll long long
@@ -17,32 +17,41 @@
 #define all(x) (x).begin(),(x).end()
 #define rall(x) (x).rbegin(),(x).rend()
 using namespace std;
-using namespace atcoder;
+//using namespace atcoder;
 typedef pair<ll,ll> P;
 typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-ll h,w,q;
-vector<string> str(0);
+
+bool comp(pair<ll, ll> a, pair<ll , ll> b) {
+    // 基本はfirstで比較
+    if(a.first != b.first){
+         return a.first < b.first; // 昇順
+        //return a.first > b.first; // 降順
+    }
+/*
+    // それ以外はsecondで比較
+    if(a.second != b.second){
+        return a.second > b.second;
+    }else{
+        // どちらも同じ
+        return true;
+    }*/
+}
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
-    cin>>n>>m;
-    scc_graph g(n);
-    rep(i,m){
-        ll a,b;
-        cin>>a>>b;
-        g.add_edge(a-1,b-1);
+    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
+    string str;
+    cin>>n;
+    //vector<vector<ll>> v(tate,vector<ll> (yoko));
+    vector<P> v(n);
+    rep(i,n)   {
+        cin >> a;
+        v[i]=P(a,i+1);
     }
-    vector<vector<int>> graph = g.scc();
-    rep(i,graph.size()){
-        sum+=graph[i].size()*(graph[i].size()-1)/2;
-    }
-    cout<<sum<<endl;
-
-
-
+    sort(all(v));
+    cout<<v[n-2].second<<endl;
     return 0;
 }

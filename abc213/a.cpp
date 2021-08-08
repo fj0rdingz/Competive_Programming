@@ -2,7 +2,7 @@
 // g++ hoge.cpp -std=c++17 -I . でコンパイルできる
 // -fsanitize=undefinedでオーバーフロー検出
 #include <bits/stdc++.h>
-#include <atcoder/all>
+//#include <atcoder/all>
 #define mod 1000000007
 #define INF LLONG_MAX
 #define ll long long
@@ -17,32 +17,20 @@
 #define all(x) (x).begin(),(x).end()
 #define rall(x) (x).rbegin(),(x).rend()
 using namespace std;
-using namespace atcoder;
+//using namespace atcoder;
 typedef pair<ll,ll> P;
 typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-ll h,w,q;
-vector<string> str(0);
+
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
-    cin>>n>>m;
-    scc_graph g(n);
-    rep(i,m){
-        ll a,b;
-        cin>>a>>b;
-        g.add_edge(a-1,b-1);
-    }
-    vector<vector<int>> graph = g.scc();
-    rep(i,graph.size()){
-        sum+=graph[i].size()*(graph[i].size()-1)/2;
-    }
-    cout<<sum<<endl;
-
-
-
+    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
+    string str;
+    cin>>a>>b;
+    c=a^b;
+    cout<<c<<endl;
     return 0;
 }
