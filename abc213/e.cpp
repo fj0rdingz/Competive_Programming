@@ -43,10 +43,10 @@ void bfs(){
     }
     if(chk[x][y]) bfs();
     chk[x][y]=true;
-    if(x-1>=0&&chk[x-1][y]==false&&str[x-1][y]=='.') {xq.push_front(x-1); yq.push_front(y);cq.push_front(c);}
-    if(y-1>=0&&chk[x][y-1]==false&&str[x][y-1]=='.') {xq.push_front(x); yq.push_front(y-1);cq.push_front(c);}
-    if(x+1<h&&chk[x+1][y]==false&&str[x+1][y]=='.') {xq.push_front(x+1); yq.push_front(y);cq.push_front(c);}
-    if(y+1<w&&chk[x][y+1]==false&&str[x][y+1]=='.') {xq.push_front(x); yq.push_front(y+1);cq.push_front(c);}
+    if(x-1>=0&&chk[x-1][y]==false&&str[x-1][y]=='.') {xq.emplace_front(x-1); yq.emplace_front(y);cq.emplace_front(c);}
+    if(y-1>=0&&chk[x][y-1]==false&&str[x][y-1]=='.') {xq.emplace_front(x); yq.emplace_front(y-1);cq.emplace_front(c);}
+    if(x+1<h&&chk[x+1][y]==false&&str[x+1][y]=='.') {xq.emplace_front(x+1); yq.emplace_front(y);cq.emplace_front(c);}
+    if(y+1<w&&chk[x][y+1]==false&&str[x][y+1]=='.') {xq.emplace_front(x); yq.emplace_front(y+1);cq.emplace_front(c);}
     rep(i,5){
         rep(j,5){
             if(i==0&&j==0||i==0&&j==4||i==4&&j==0||i==4&&j==4) continue;
@@ -54,7 +54,7 @@ void bfs(){
             if(dx[i]+x<0||dy[j]+y<0) continue;
             if(dx[i]+x>=h||dy[j]+y>=w) continue;
             if(str[dx[i]+x][dy[j]+y]=='.'||chk[dx[i]+x][dy[j]+y]==true) continue;
-            xq.push_back(dx[i]+x); yq.push_back(dy[j]+y);cq.push_back(c+1);
+            xq.emplace_back(dx[i]+x); yq.emplace_back(dy[j]+y);cq.emplace_back(c+1);
           //  cout<<"hi";
         }
     }
@@ -75,9 +75,9 @@ int main() {
     rep(i,h) chk[i].resize(w);
     rep(i,h) rep(j,w) chk[i][j]=false;
     rep(i,h) cin>>str[i];
-    xq.push_back(0);
-    yq.push_back(0);
-    cq.push_back(0);
+    xq.emplace_back(0);
+    yq.emplace_back(0);
+    cq.emplace_back(0);
     bfs();
 
     return 0;

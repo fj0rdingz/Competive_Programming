@@ -27,6 +27,7 @@ bool comp(pair<ll, ll> a, pair<ll , ll> b) {
     }
 
     // それ以外はsecondで比較
+    // secondがconflictしない場合は入れておいたほうが良い
     if(a.second != b.second){
         return a.second > b.second;
     }else{
