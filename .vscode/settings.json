@@ -18,6 +18,7 @@
         "regex": "cpp",
         "utility": "cpp",
         "valarray": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "tuple": "cpp"
     }
     }

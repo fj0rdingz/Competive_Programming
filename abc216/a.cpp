@@ -2,7 +2,7 @@
 // g++ hoge.cpp -std=c++17 -I . でコンパイルできる
 // -fsanitize=undefinedでオーバーフロー検出
 #include <bits/stdc++.h>
-#include <atcoder/all>
+//#include <atcoder/all>
 #define mod 1000000007
 #define INF LLONG_MAX
 #define ll long long
@@ -17,40 +17,26 @@
 #define all(x) (x).begin(),(x).end()
 #define rall(x) (x).rbegin(),(x).rend()
 using namespace std;
-using namespace atcoder;
-using S = ll;
+//using namespace atcoder;
 typedef pair<ll,ll> P;
 typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
 
-ll op(ll a, ll b){ return max(a, b);}
-ll mapping(ll f, ll x){ return max(f, x); }
-ll e(){return 0;}
-ll composition(ll f, ll g){ return max(f, g); }
-ll id(){ return 0LL; }
 int main() {
-  cin.tie(0);
- 	ios::sync_with_stdio(false);
+    cin.tie(0);
+   	ios::sync_with_stdio(false);
 
-  ll a,b,c,d,m,n,k,x,y,w,maxi=0,f=0,mini=INF,sum=0;
-  string str;
-  cin>>k;
-  rep(_,k){
-    cin>>w>>n;
-    vector<ll> v(w+1);
-        lazy_segtree<ll,op,e,ll,mapping,composition,id> seg(v);
-        vector<ll> l(n);
-        vector<ll> r(n);
-    rep(i,n){
-        cin>>a>>b;
-        b++;
-        seg.apply(a,b,seg.prod(a,b)+1);
-        cout<<seg.prod(a,b)<<endl;
-        l[i]=a;
-        r[i]=b;
+    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
+    string str;
+    cin>>str;
+    a=stoll(str);
+    if(str[str.length()-1]>='7'){
+        cout<<a<<'+'<<endl;
+    }else if(str[str.length()-1]>='3'){
+        cout<<a<<endl;
+    }else{
+        cout<<a<<'-'<<endl;
     }
-  }
-
-  return 0;
+    return 0;
 }

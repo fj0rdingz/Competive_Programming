@@ -22,40 +22,46 @@ typedef pair<ll,ll> P;
 typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-ll h,w,q;
-vector<string> str(0);
-map< int64_t, int > prime_factor(int64_t n) {
-  map< int64_t, int > ret;
-  for(int64_t i = 2; i * i <= n; i++) {
-    while(n % i == 0) {
-      ret[i]++;
-      n /= i;
-    }
-  }
-  if(n != 1) ret[n] = 1;
-  return ret;
-}
+
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll n,k,x,y,maxi=0,mini=INF,sum=0,f=0;
-    cin>>n;
+    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
+    string str;
+    cin>>n>>k;
     vector<ll> v(n);
     rep(i,n) cin>>v[i];
-    ll m=v[0];
-    rep(i,n) m=__gcd(m,v[i]); 
-    vector<ll> arr(1001001,0);
-    rep(i,n){
-        for(auto p : prime_factor(v[i])) {
-            arr[p.first]++;
-            if(arr[p.first]==2) f=1; 
+    sort(all(v));
+    ll l=0,r=INF/2-10;
+    ll buk=k;
+    ll mid;
+    rep(_,300){
+        k=buk;
+        mid= (l+r)/2;
+        vector<ll> w(n);
+        rep(i,n) w[i]=v[i];
+        rep(i,n){
+            if(w[i]*2>=l+r){  //要確認
+                k-=(w[i]*2-(l+r))/2;
+                if((w[i]*2-(l+r))%2==0) k--;
+            }
         }
-        if(f) break;
+        if(k>0) r=mid;
+        else l=mid;
     }
-    if(m==1&&f) cout<<"setwise coprime"<<endl;
-    else if(f) cout<<"not coprime"<<endl;
-    else cout<<"pairwise coprime"<<endl;
+   // cout<<mid<<endl;
+    ll calced=0;
+    a=mid;
+    rep(i,n){
+        if(v[i]>a){
+            sum+=(v[i]+(a+1))*(v[i]-(a+1)+1)/2;
+            calced+=v[i]-(a+1)+1;
+         //   cout<<sum<<" added:"<<(v[i]+(mid+1))*(v[i]-(mid+1)+1)/2<<"addednum:"<<v[i]-(mid+1)+1<<" curnum:"<<calced<<endl;
+        }
+    }
+    sum+=a*(buk-calced);
+    cout<<sum<<endl;
 
     return 0;
 }

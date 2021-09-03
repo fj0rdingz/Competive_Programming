@@ -39,7 +39,7 @@ int main() {
             if(j!=i)prime[j]=false;
         }
     }
-    rep(i,n) if(!prime[i]) cout<<i<<" ";
+    rep(i,n) if(prime[i]) cout<<i<<" ";
     ln; 
 
 

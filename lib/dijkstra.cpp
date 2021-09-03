@@ -44,6 +44,8 @@ int main() {
         Edge e;
         cin>>b>>e.to>>e.d;
         Es[b].push_back(e);
+        // swap(b,e.to);
+        // Es[b].push_back(e);
     }
     rep(i,V) d[i]=INF;
     d[r]=0;

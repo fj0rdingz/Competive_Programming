@@ -22,8 +22,6 @@ typedef pair<ll,ll> P;
 typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-ll h,w,q;
-vector<string> str(0);
 map< int64_t, int > prime_factor(int64_t n) {
   map< int64_t, int > ret;
   for(int64_t i = 2; i * i <= n; i++) {
@@ -39,23 +37,43 @@ int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll n,k,x,y,maxi=0,mini=INF,sum=0,f=0;
-    cin>>n;
-    vector<ll> v(n);
-    rep(i,n) cin>>v[i];
-    ll m=v[0];
-    rep(i,n) m=__gcd(m,v[i]); 
-    vector<ll> arr(1001001,0);
+    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
+    string str;
+    cin>>n>>m;
+    //vector<vector<ll>> v(tate,vector<ll> (yoko));
+    set<ll> s;
     rep(i,n){
-        for(auto p : prime_factor(v[i])) {
-            arr[p.first]++;
-            if(arr[p.first]==2) f=1; 
-        }
-        if(f) break;
+        cin>>a;
+        s.insert(a);
     }
-    if(m==1&&f) cout<<"setwise coprime"<<endl;
-    else if(f) cout<<"not coprime"<<endl;
-    else cout<<"pairwise coprime"<<endl;
+    set<ll> base;
+    vector<ll> v(s.size());
+    ll i=0;
+    for(auto itr=s.begin();itr!=s.end();++itr){
+        v[i]=*itr;
+        i++;
+    }
+    rep(i,v.size()){
+        for(auto p : prime_factor(v[i])) {
+            base.insert(p.first);
+        }
+    }
+
+    vector<bool> prime(m+1,true);
+    prime[0]=false;prime[1]=false;
+    for(ll i=2;i<=m+1;i++){
+        if(!prime[i]) continue;
+        if(base.find(i)!=base.end()) {
+            for(ll j=i;j<=m;j+=i){
+                prime[j]=false;
+            }
+        }
+    }
+    prime[1]=true;
+    rep(i,m+1) if(prime[i]==true) sum++;
+    cout<<sum<<endl;
+    rep(i,m+1) if(prime[i]) cout<<i<<endl;
 
     return 0;
 }
+
