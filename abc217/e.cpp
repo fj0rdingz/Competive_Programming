@@ -29,17 +29,43 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
-    cin>>n>>str;
-    for(ll i=0;i<1000;i++){
-        string tar=to_string(i);
-        while(tar.size()<3) tar.insert(tar.begin(),'0');
-    //    cout<<tar<<endl;
-        ll ptr=0;
-        rep(j,n){
-            if(str[j]==tar[ptr]) ptr++;
+    cin>>n;
+    priority_queue<ll,vector<ll>,greater<ll>> q;
+    vector<ll> buffer(0);
+    ll ptr=0;
+    ll bufptr=0;
+    rep(i,n){ 
+        cin>>a;
+        if(a==1){
+            cin>>b;
+            buffer.push_back(b);
+        }else if(a==2){
+            if(q.empty()){
+                cout<<buffer[bufptr]<<endl;
+                buffer[bufptr]=INF;
+                bufptr++;
+            }else{
+                cout<<q.top()<<endl;
+                q.pop();
+            }
+        }else{
+            rep(j,buffer.size()){
+                if(buffer[j]!=INF) q.push(buffer[j]);
+                buffer[j]=INF;
+            }
+            buffer.clear();
+            bufptr=0;
         }
-        if(ptr==3) sum++;
-    }
-    cout<<sum<<endl;
+    }/*
+ln; cout<<"q:";
+    while(!q.empty()){
+        cout<<q.top()<<" ";
+        q.pop();
+    }ln;
+    cout<<"buf:";
+    rep(i,buffer.size()){
+        cout<<buffer[i]<<" ";
+    }ln;
+*/
     return 0;
 }

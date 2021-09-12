@@ -5,7 +5,7 @@
 //#include <atcoder/all>
 #define mod 1000000007
 #define INF LLONG_MAX
-#define ll unsigned long long
+#define ll long long
 #define endl '\n'
 #define ln cout<<endl
 #define Yes cout<<"Yes"<<endl
@@ -20,6 +20,8 @@ using namespace std;
 //using namespace atcoder;
 typedef pair<ll,ll> P;
 typedef tuple<ll,ll,ll> T;
+ll dx[4]={1,0,-1,0};
+ll dy[4]={0,1,0,-1};
 
 int main() {
     cin.tie(0);
@@ -28,23 +30,9 @@ int main() {
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     string str;
     cin>>n;
-    vector<ll> v(n);
-    rep(i,n) cin>>v[i];
     //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> p={2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,49};
-    for(ll bit = 1;bit<(1<<p.size());bit++){
-        ll num =1;
-        f=0;
-        rep(i,p.size()){
-            if(bit&(1<<i)) num*=p[i];
-        }
-        rep(i,v.size()){
-            if(__gcd(num,v[i])==1) f=1;
-        }
-        if(!f){
-            mini=min(mini,num);
-        }
-    }
-    cout<<mini<<endl;
+    vector<ll> v(n);
+    rep(i,n)   cin >> v[i];
+
     return 0;
 }

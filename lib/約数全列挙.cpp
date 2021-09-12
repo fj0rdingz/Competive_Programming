@@ -1,4 +1,5 @@
 // v[i].size()とかで上限を設定すればよい
+// O(√N)
 
 #include <bits/stdc++.h>
 #define mod 1000000007

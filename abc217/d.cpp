@@ -4,8 +4,7 @@
 #include <bits/stdc++.h>
 //#include <atcoder/all>
 #define mod 1000000007
-#define INF LLONG_MAX
-#define ll unsigned long long
+#define ll long long
 #define endl '\n'
 #define ln cout<<endl
 #define Yes cout<<"Yes"<<endl
@@ -20,31 +19,32 @@ using namespace std;
 //using namespace atcoder;
 typedef pair<ll,ll> P;
 typedef tuple<ll,ll,ll> T;
-
+ll dx[4]={1,0,-1,0};
+ll dy[4]={0,1,0,-1};
+set<ll> s;
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
+    ll b,c,d,m,n,k,x,y,maxi=0,f=0,mini,sum=0;
     string str;
-    cin>>n;
-    vector<ll> v(n);
-    rep(i,n) cin>>v[i];
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<ll> p={2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,49};
-    for(ll bit = 1;bit<(1<<p.size());bit++){
-        ll num =1;
-        f=0;
-        rep(i,p.size()){
-            if(bit&(1<<i)) num*=p[i];
-        }
-        rep(i,v.size()){
-            if(__gcd(num,v[i])==1) f=1;
-        }
-        if(!f){
-            mini=min(mini,num);
+    ll l,q;
+    cin>>l>>q;
+    s.insert(0);
+    s.insert(l);
+    rep(i,q){
+        cin>>b>>c;
+        if(b==1){
+            s.insert(c);
+        }else{
+            
+            auto aft=s.upper_bound(c);
+            auto bef=s.upper_bound(c);
+            bef--;
+            cout<<*aft-*bef<<endl;
         }
     }
-    cout<<mini<<endl;
+
+
     return 0;
 }
