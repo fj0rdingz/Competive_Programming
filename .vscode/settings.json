@@ -1,7 +1,6 @@
 {
     "files.autoSave": "afterDelay",
     "files.eol": "\n",
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
     "terminal.integrated.automationShell.windows": "C:\\Windows\\System32\\wsl.exe",
     "files.associations": {
         "ostream": "cpp",
@@ -22,6 +21,8 @@
         "*.tcc": "cpp",
         "tuple": "cpp",
         "chrono": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "random": "cpp",
+        "limits": "cpp"
     }
     }

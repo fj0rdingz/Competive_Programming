@@ -4,7 +4,7 @@
 #include <bits/stdc++.h>
 //#include <atcoder/all>
 #define mod 1000000007
-#define INF LLONG_MAX
+#define INF 1001001001
 #define ll long long
 #define endl '\n'
 #define ln cout<<endl
@@ -22,31 +22,42 @@ typedef pair<ll,ll> P;
 typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-
+ll h,w,q;
+vector<string> str(0);
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
-    string str;
+    ll m,n,k,x,y,maxi=0,mini=INF,sum=0;
+    ll q;
     cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<long double> v(n);
-    rep(i,n)   cin >> v[i];
-    sort(all(v));
-    long double num,tot;
-    if(n%2){
-        num=v[n/2]/2;
-        tot=num*n;
-    }else{
-        num=(v[n/2]+v[n/2-1])/4;
-        tot=num*n;
-    }
-    //cout<<num<<" "<<tot<<endl;
-    tot+=accumulate(all(v),0LL);
+    vector<P> p(n);
+    P lu,ld,ru,rd;
+    lu=P(INF,-INF); //first x second y
+    ld=P(INF,INF);
+    ru=P(-INF,-INF);
+    rd=P(-INF,INF);
     rep(i,n){
-        tot-=min(v[i],num*2);
+        ll a,b;
+        cin>>a>>b;
+        p[i]=P(a,b);
+        if((lu.first-lu.second)>a-b) lu=p[i];
+        if((ld.first+ld.second)>a+b) ld=p[i];
+        if((ru.first+ru.second)<a+b) ru=p[i];
+        if((rd.first-rd.second)<a-b) rd=p[i];
     }
-    printf("%.10Lf\n",tot/n);
+    rep(i,n){
+        ll a=i;
+        
+        maxi=max(max(abs(p[a].first-lu.first)+abs(p[a].second-lu.second)
+             ,max(abs(p[a].first-ld.first)+abs(p[a].second-ld.second)
+             ,max(abs(p[a].first-ru.first)+abs(p[a].second-ru.second)
+             ,abs(p[a].first-rd.first)+abs(p[a].second-rd.second)))),maxi);
+    }
+    cout<<maxi<<endl;
+
+
+
+
     return 0;
 }

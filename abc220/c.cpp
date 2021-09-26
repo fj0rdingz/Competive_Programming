@@ -1,3 +1,6 @@
+// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで str[0]=toupper(str[0]);
+// g++ hoge.cpp -std=c++17 -I . でコンパイルできる
+// -fsanitize=undefinedでオーバーフロー検出
 #include <bits/stdc++.h>
 //#include <atcoder/all>
 #define mod 1000000007
@@ -30,6 +33,20 @@ int main() {
     //vector<vector<ll>> v(tate,vector<ll> (yoko));
     vector<ll> v(n);
     rep(i,n)   cin >> v[i];
+    cin>>x;
+    sum=accumulate(all(v),0LL);
+    ll ans=0;
+    ans=(x/sum)*n;
+    x%=sum;
+    ll cur=0;
+    rep(i,n){
+        cur+=v[i];
+        ans++;
+        if(cur>x){
+            cout<<ans<<endl;
+            return 0;
+        }
+    }
 
     return 0;
 }

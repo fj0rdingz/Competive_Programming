@@ -35,6 +35,7 @@ public:
 };
 
 int main() {
+   long long a,b,c;
     Radix r;
     // 10 進数を n 進文字列に
     std::cout << r.to(255, 10) << std::endl; // => "255"

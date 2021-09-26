@@ -29,90 +29,45 @@ int main() {
 
     ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
     cin>>n;
-    vector<string> s(n);
-    vector<string> t(n);
+    string s[n];
+    string t[n];
     rep(i,n) cin>>s[i];
     rep(i,n) cin>>t[i];
-    s.resize(n+2);
-    rep(i,n+2) s[0]+='.';
-    rep(i,n+2) s[n+1]+='.';
-    rep(i,n) s[i+1].insert(s[i+1].begin(),'.');
-    rep(i,n) s[i+1].push_back('.');
-    ll sl=INF;
-    ll sr=-1;
-    ll tl=INF;
-    ll tr=-1;
-    ll su=INF;
-    ll sd=-1;
-    ll tu=INF;
-    ll td=-1;
+    set<P> st;
+    set<P> tt;
+
     rep(i,n){
         rep(j,n){
             if(s[i][j]=='#') {
-                sl=min(sl,j);
-                sr=max(sr,j);
-                su=min(su,i);
-                sd=max(su,i);
+                st.insert(P(i,j));
             }
         }
     }
     rep(i,n){
         rep(j,n){
             if(t[i][j]=='#') {
-                tl=min(tl,j);
-                tr=max(tr,j);
-                tu=min(tu,i);
-                td=max(tu,i);
+                tt.insert(P(i,j));
             }
         }
     }
-     f=0;
-     ll state=sd-su+1;
-     ll ttate=td-tu+1;
-     ll syoko=sr-sl+1;
-     ll tyoko=tr-tl+1;
-    string s1[state];
-    string t1[ttate];
-    rep(i,state){
-        s1[i]=s[su+i].substr(sl,syoko);
+    if(st.size()!=tt.size()){
+        No;
+        return 0;
     }
-    rep(i,ttate){
-        t1[i]=t[tu+i].substr(tl,tyoko);
+    bool f1=true;
+    bool f2=true;
+    bool f3=true;
+    bool f4=true;
+    
+    for(auto itr=st.begin();itr!=st.end();++itr){
+        for(ll i=-200;i<=200;i++){
+            if(tt.find(P(((*itr).first)+i,((*itr).second)+i))==tt.end())f1 =false;
+            if(tt.find(P(((*itr).first)-i,((*itr).second)+i))==tt.end())f2 =false;
+            if(tt.find(P(((*itr).first)-i,((*itr).second)-i))==tt.end())f3 =false;
+            if(tt.find(P(((*itr).first)+i,((*itr).second)-i))==tt.end())f4 =false;
+        }
     }
-    if(state==ttate&&syoko==tyoko){
-    //左右、上下の長さが同じ
-        bool hantei=true;
-        rep(i,state){
-            rep(j,syoko){
-                if(s1[i][j]!=t1[i][j]) hantei=false;
-            }
-        }
-        if(hantei) f=1;
-        hantei=true;
-        rep(i,state){
-            rep(j,syoko){
-                if(s1[i][j]!=t1[state-i-1][syoko-j-1]) hantei=false;
-            }
-        }
-        if(hantei) f=1;
-    }
-    if(state==tyoko&&syoko==ttate){
-        bool hantei=true;
-        rep(i,state){
-            rep(j,syoko){
-                if(s1[i][j]!=t1[j][state-i-1]) hantei=false;
-            }
-        }
-        if(hantei) f=1;
-        hantei=true;
-        rep(i,state){
-            rep(j,syoko){
-                if(s1[i][j]!=t1[syoko-1-j][i]) hantei=false;
-            }
-        }
-        if(hantei) f=1;
-    }
-    if(f) Yes;
+    if(f1||f2||f3||f4) Yes;
     else No;
     return 0;
 }

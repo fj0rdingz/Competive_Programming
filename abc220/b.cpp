@@ -22,31 +22,47 @@ typedef pair<ll,ll> P;
 typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-
+class Radix {
+private:
+  const char* s;
+  int a[128];
+public:
+  Radix(const char* s = "0123456789ABCDEF") : s(s) {
+    int i;
+    for(i = 0; s[i]; ++i)
+      a[(int)s[i]] = i;
+  }
+  std::string to(long long p, int q) {
+    int i;
+    if(!p)
+      return "0";
+    char t[64] = { };
+    for(i = 62; p; --i) {
+      t[i] = s[p % q];
+      p /= q;
+    }
+    return std::string(t + i + 1);
+  }
+  std::string to(const std::string& t, int p, int q) {
+    return to(to(t, p), q);
+  }
+  long long to(const std::string& t, int p) {
+    int i;
+    long long sm = a[(int)t[0]];
+    for(i = 1; i < (int)t.length(); ++i)
+      sm = sm * p + a[(int)t[i]];
+    return sm;
+  }
+};
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
+    Radix r;
+    ll c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
+    string a,b;
+    cin>>k>>a>>b;
 
-    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
-    string str;
-    cin>>n;
-    //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<long double> v(n);
-    rep(i,n)   cin >> v[i];
-    sort(all(v));
-    long double num,tot;
-    if(n%2){
-        num=v[n/2]/2;
-        tot=num*n;
-    }else{
-        num=(v[n/2]+v[n/2-1])/4;
-        tot=num*n;
-    }
-    //cout<<num<<" "<<tot<<endl;
-    tot+=accumulate(all(v),0LL);
-    rep(i,n){
-        tot-=min(v[i],num*2);
-    }
-    printf("%.10Lf\n",tot/n);
+    cout<<r.to(a, k) * r.to(b, k) <<endl;
+
     return 0;
 }

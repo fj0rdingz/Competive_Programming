@@ -34,7 +34,7 @@ public:
         x = root(x);
         y = root(y);
         if (x == y) return false;
-        // merge technique（データ構造をマージするテク．小を大にくっつける）
+        // merge technique（データ構造をマージするテク．小を大にくっつける）x>yになる
         if (siz[x] < siz[y]) swap(x, y);
         siz[x] += siz[y];
         par[y] = x;

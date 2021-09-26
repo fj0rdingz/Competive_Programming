@@ -22,31 +22,41 @@ typedef pair<ll,ll> P;
 typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
-
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
+    ll c,d,m,n,k,x,y,maxi=0,f=0,mini=INF/3,sum=0;
     string str;
-    cin>>n;
+    cin>>n>>x>>y;
     //vector<vector<ll>> v(tate,vector<ll> (yoko));
-    vector<long double> v(n);
-    rep(i,n)   cin >> v[i];
-    sort(all(v));
-    long double num,tot;
-    if(n%2){
-        num=v[n/2]/2;
-        tot=num*n;
-    }else{
-        num=(v[n/2]+v[n/2-1])/4;
-        tot=num*n;
+    vector<P> p(n);
+    rep(i,n) {
+        cin>>c>>d;
+        p[i]=P(c,d);
     }
-    //cout<<num<<" "<<tot<<endl;
-    tot+=accumulate(all(v),0LL);
-    rep(i,n){
-        tot-=min(v[i],num*2);
+    ll dp[310][620][620];
+    rep(i,302)rep(j,602)rep(k,602) dp[i][j][k]=INF/3;
+    dp[0][0][0]=0;
+    for(ll i=1;i<=n;i++){
+        rep(j,301){
+            rep(k,301) {
+                if(j-p[i-1].first>=0&&k-p[i-1].second>=0) dp[i][j][k]=min(dp[i-1][j][k],dp[i-1][j-p[i-1].first][k-p[i-1].second]+1);
+                else dp[i][j][k]=dp[i-1][j][k];
+            }
+        }
     }
-    printf("%.10Lf\n",tot/n);
+
+    rep(j,602){
+        rep(k,602){
+            if(j>=x&&k>=y) {
+                mini=min(dp[n+1][j][k],mini);
+                f=1;
+            }
+        }
+    }
+
+    if(mini<INF/3)    cout<<mini<<endl;
+    else cout<<-1<<endl;
     return 0;
 }
