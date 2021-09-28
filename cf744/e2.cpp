@@ -1,4 +1,4 @@
-// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで str[0]=toupper(str[0]);
+// lcmとか__builtin_popcountとかはg++ -std=c++17 default.cppみたいなかんじで
 // g++ hoge.cpp -std=c++17 -I . でコンパイルできる
 // -fsanitize=undefinedでオーバーフロー検出
 #include <bits/stdc++.h>
@@ -6,7 +6,6 @@
 #define mod 1000000007
 #define INF LLONG_MAX
 #define ll long long
-#define endl '\n'
 #define ln cout<<endl
 #define Yes cout<<"Yes"<<endl
 #define NO cout<<"NO"<<endl
@@ -19,7 +18,6 @@
 using namespace std;
 //using namespace atcoder;
 typedef pair<ll,ll> P;
-typedef tuple<ll,ll,ll> T;
 ll dx[4]={1,0,-1,0};
 ll dy[4]={0,1,0,-1};
 
@@ -27,23 +25,16 @@ int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    ll a,b,c,d=0,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0;
+    ll a,b,c,d,m,n,k,x,y,maxi=0,f=0,mini=INF,sum=0,loop;
     string str;
-    cin>>str>>k;
-    ll l=0,r=0,u=0,q=0;
-    rep(i,str.length()){
-        if(str[i]=='L') l++;
-        if(str[i]=='R') r++;
-        if(str[i]=='U') u++;
-        if(str[i]=='D') d++;
-        if(str[i]=='?') q++;
+    cin>>loop;
+    rep(_,loop){
+        cin>>n;
+        //vector<vector<ll>> v(tate,vector<ll> (yoko));
+        vector<ll> v(n);
+        rep(i,n)   cin >> v[i];
     }
-    if(k==1){
-        cout<<q+abs(l-r)+abs(u-d)<<endl;
-    }else{
-        if(abs(abs(l-r)+abs(u-d)-q)%2)        cout<<max(abs(l-r)+abs(u-d)-q,1ll)<<endl;
-        else         cout<<max(abs(l-r)+abs(u-d)-q,0ll)<<endl;
-    }
+
 
     return 0;
 }
