@@ -2,9 +2,21 @@
 // g++ main.cpp -std=c++14 -I .  atcoderフォルダをmain.cppと同じ場所に置いた後で
 // -fsanitize=undefinedでオーバーフロー検出
 #include <bits/stdc++.h>
-
-#include <algorithm>
-#include <array>
+#include <bits/stdc++.h>
+//#include <atcoder/all>
+#define INF LLONG_MAX
+#define ll long long
+#define endl '\n'
+#define ln cout<<endl
+#define Yes cout<<"Yes"<<endl
+#define NO cout<<"NO"<<endl
+#define YES cout<<"YES"<<endl
+#define No cout<<"No"<<endl
+#define REP(i,m,n) for(ll i=(ll)(m);i<(ll)(n);i++)
+#define rep(i,n) REP(i,0,n)
+#define all(x) (x).begin(),(x).end()
+#define rall(x) (x).rbegin(),(x).rend()
+using namespace std;
 
 #ifdef _MSC_VER
 #include <intrin.h>
@@ -2071,55 +2083,45 @@ struct two_sat {
     internal::scc_graph scc;
 };
 
-}  // namespace atcoder
+}
 
-#define mod 1000000007
-#define INF LLONG_MAX
-#define ll long long
-#define ln cout<<endl
-#define Yes cout<<"Yes"<<endl
-#define NO cout<<"NO"<<endl
-#define YES cout<<"YES"<<endl
-#define No cout<<"No"<<endl
-#define REP(i,m,n) for(ll i=(ll)(m);i<(ll)(n);i++)
-#define rep(i,n) REP(i,0,n)
-#define all(x) (x).begin(),(x).end()
-#define rall(x) (x).rbegin(),(x).rend()
-using namespace std;
+ll op(ll a, ll b) {
+    return max(a, b);
+}
+
+ll e() {
+    return (ll)(-1);
+}
 using namespace atcoder;
-ll dx[4]={1,0,-1,0};
-ll dy[4]={0,1,0,-1};
-typedef pair<ll,ll> P;
-
-
 
 int main() {
     cin.tie(0);
    	ios::sync_with_stdio(false);
 
-    int a,b,c,d,m,n,maxi=0,f=0,mini=INF,sum=0;
-    int k;
-    int g,e;
-    cin>>n>>g>>e;
-    vector<int> gs(g);
-    rep(i,g) {
-        cin>>gs[i];
+    ll a,b,c,d,m,n,k,x,maxi=0,f=0,mini=INF,sum=0;
+    string str;
+    ll w;
+    cin>>w>>n;
+    //vector<vector<ll>> v(tate,vector<ll> (yoko));
+    vector<ll> v(n);
+    vector<ll> l(n);
+    vector<ll> r(n);
+    rep(i,n) cin>>l[i]>>r[i]>>v[i];
+    rep(i,n) l[i]--;
+    segtree<ll, op, e> seg(10001);
+    seg.set(0,0);
+    rep(i,n){
+        for(ll j=w;j>=1;j--){
+            if(j-l[i]>=0){
+                ll rangemax = seg.prod(max(0ll,j-r[i]),max(0ll,j-l[i]));
+                if(rangemax==-1) continue;
+                seg.set(j,max(rangemax+v[i],seg.get(j)));
+            }
+        }
     }
-    vector<P> p(e+g);
-    rep(i,e){
-        cin>>a>>b;
-        p[i]=make_pair(a,b);
-    }
-    mf_graph<int> graph(n+1);
-    rep(i,e){
-        graph.add_edge(p[i].first,p[i].second,1);
-graph.add_edge(p[i].second,p[i].first,1);
-    }
-    rep(i,g){
-        graph.add_edge(gs[i],n,1);
-        graph.add_edge(n,gs[i],1);
-    }
-    cout<<graph.flow(0,n)<<endl;
-
+    //rep(i,101) cout<<seg.get(i)<<" ";
+    //ln;
+    if(seg.get(w)!=0)cout<<seg.get(w)<<endl;
+    else cout<<-1<<endl;
     return 0;
 }
