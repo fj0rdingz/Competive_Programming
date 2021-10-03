@@ -1,4 +1,4 @@
-fmv@FMV-PC:/mnt/d/競プロ/TrashBox/abc-d$ ulimit -c
+cxfmv@FMV-PC:/mnt/d/競プロ/TrashBox/abc-d$ ulimit -c
 0
 fmv@FMV-PC:/mnt/d/競プロ/TrashBox/abc-d$ ulimit -c unlimited
 fmv@FMV-PC:/mnt/d/競プロ/TrashBox/abc-d$ g++ -g 111c.cpp
