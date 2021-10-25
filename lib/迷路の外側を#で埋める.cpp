@@ -31,6 +31,7 @@ int main() {
     ll h,w;
     cin>>h>>w;
     //cin>>sx>>sy>>gx>>gy;
+    //vector<vector<ll>> v(tate,vector<ll> (yoko));
     str.resize(h+2);
     rep(i,h) cin>>str[i+1];
     rep(i,w+2) str[0]+='#';

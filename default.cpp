@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 //#include <atcoder/all>
 #define mod 1000000007
-#define INF LLONG_MAX
+#define INF LLONG_MAX/3
 #define ll long long
 #define endl '\n'
 #define ln cout<<endl
@@ -13,6 +13,7 @@
 #define rep(i,n) REP(i,0,n)
 #define all(x) (x).begin(),(x).end()
 #define rall(x) (x).rbegin(),(x).rend()
+#define printld(x) printf("%.16Lf\n",x)
 using namespace std;
 //using namespace atcoder;
 typedef pair<ll,ll> P;
